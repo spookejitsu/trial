@@ -1,0 +1,48 @@
+# UFC BJJ board data. Edit this file on GitHub and the board updates itself.
+# Champion: Division | Name | Country | Record
+# Rank: Division | Number | Name | Record | Note (optional)
+# The Division text must match exactly between Champion and Rank lines.
+
+Champion: Bantamweight (135 lbs) | Mikey Musumeci | US | 5-0
+Rank: Bantamweight (135 lbs) | 1 | Jalen Fonacier | 4-0-0
+Rank: Bantamweight (135 lbs) | 2 | Keven Carrasco | 1-1-0
+Rank: Bantamweight (135 lbs) | 3 | Rerisson Gabriel | 1-1-0
+
+Champion: Lightweight (155 lbs) | Renato Canuto | BR | 3-1
+Rank: Lightweight (155 lbs) | 1 | Lucas Valente | 1-0-0 | Former champ, beat Carlos Henrique
+Rank: Lightweight (155 lbs) | 2 | Carlos Henrique | 2-1-0 | Inaugural champ
+Rank: Lightweight (155 lbs) | 3 | Ethan Crelinsten | 1-1-0 | Title challenger at 12
+
+Champion: Welterweight (170 lbs) | Andrew Tackett | US | 5-0
+Rank: Welterweight (170 lbs) | 1 | Andy Murasaki | 2-0-0
+Rank: Welterweight (170 lbs) | 2 | Jonnatas Gracie | 1-1-0
+Rank: Welterweight (170 lbs) | 3 | Andy Varela | 2-3-0 | Moves up after Vagner retirement
+
+Champion: Middleweight (185 lbs) | Ronaldo Júnior | BR | 2-0
+Rank: Middleweight (185 lbs) | 1 | William Tackett | 3-1-0
+Rank: Middleweight (185 lbs) | 2 | Jay Rodriguez | 1-0-0
+Rank: Middleweight (185 lbs) | 3 | Nicholas Meregali | 1-0-0
+
+Champion: Light Heavyweight (205 lbs) | Mason Fowler | US | 3-0-1
+Rank: Light Heavyweight (205 lbs) | 1 | Nick Rodriguez | 1-0-2
+Rank: Light Heavyweight (205 lbs) | 2 | Pedro Machado | 2-1-0
+Rank: Light Heavyweight (205 lbs) | 3 | Devhonte Johnson | 1-1-0
+
+Champion: Women's Flyweight (125 lbs) | Cassia Moura | BR | 6-0
+Rank: Women's Flyweight (125 lbs) | 1 | Adele Fornarino | 2-1-0
+Rank: Women's Flyweight (125 lbs) | 2 | Ana Mayordomo | 1-0-0
+Rank: Women's Flyweight (125 lbs) | 3 | Tammi Musumeci | 1-0-0
+
+Champion: Women's Bantamweight (135 lbs) | Cassia Moura | BR | 6-0
+Rank: Women's Bantamweight (135 lbs) | 1 | Ffion Davies | 1-1-0
+Rank: Women's Bantamweight (135 lbs) | 2 | Ana Rodrigues | 1-0-0
+Rank: Women's Bantamweight (135 lbs) | 3 | Carol Brunacio | 1-1-0
+
+Champion: Women's Featherweight (145 lbs) | Brianna Ste-Marie | CA | 1-0
+Rank: Women's Featherweight (145 lbs) | 1 | Rebeca Lima | 2-1-0
+Rank: Women's Featherweight (145 lbs) | 2 | Aurelie Le Vern | 3-1-0
+Rank: Women's Featherweight (145 lbs) | 3 | Bella Mir | 3-0-0
+
+# Next event (optional). Bouts: Weight | Fighter A | Fighter B | Country A | Country B | Record A | Record B
+Event: UFC BJJ
+# Card: Main Card

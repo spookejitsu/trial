@@ -1,0 +1,28 @@
+# How the rankings work
+We built these rankings using UFC BJJ only data from UFC BJJ 1-12 (June 25, 2025 to Oct 8, 2026). Not IBJJF, not ADCC, not FPI - only what happened inside The Bowl.
+
+# 1. Champions are automatically #0
+Every division starts with the current belt holder on top. No debate.
+- Mikey Musumeci, Andrew Tackett, Mason Fowler and Ronaldo Júnior are incumbent since 2025.
+- Renato Canuto was crowned at UFC BJJ 12 vs Ethan Crelinsten.
+- Cassia Moura won flyweight at UFC BJJ 12 vs Adele Fornarino to become the first double champ (flyweight + bantamweight).
+- Brianna Ste-Marie won featherweight at UFC BJJ 10 vs Rebeca Lima.
+
+# 2. Record inside UFC BJJ only
+We compiled a full W-L-D for all 125 fighters who have competed in UFC BJJ. No outside wins count.
+That's why you see guys like Jalen Fonacier at #1 at 135 - he's 4-0 with 4 finishes, all in UFC BJJ. It's not hype, it's math.
+
+# 3. Strength of schedule over raw record
+After record, we looked at WHO you beat:
+- Title fight experience is weighted heaviest. If you fought for a title, you rank above someone with the same record who didn't. Example: Ethan Crelinsten is 1-1 but gets lightweight #3 because his one loss was in a title fight at UFC BJJ 12.
+- Head-to-head breaks ties. Lucas Valente is 1-0 but ranked above Carlos Henrique (2-1) at lightweight because he beat him directly at UFC BJJ 7 for the belt.
+- Finishes vs decisions. A 1-0 with a submission ranks above a 1-0 decision when it's close.
+
+# 4. Activity and recency
+UFC BJJ is only 16 months old. If you fought in the last 2 cards (UFC BJJ 11 & 12), you get a bump over someone who hasn't fought since UFC BJJ 1-3. That's why Andy Murasaki (last win UFC BJJ 5) still holds #1 at welterweight - the division is thin and he has the only undefeated 2-0 record.
+
+# 5. Retirements are removed
+Vagner Rocha was originally #2 at welterweight (1-1, win over Andy Varela at UFC BJJ 10, loss to Tackett at UFC BJJ 7). Since he retired, he was removed completely and everyone moved up. We don't rank inactive or retired fighters.
+
+# Why only the Top 3?
+Beyond the top 3 in most UFC BJJ divisions, records drop to 1-1, 0-1, or fighters who have changed weight classes. We didn't want to rank 0-1 fighters in a Top 10 just to fill spots. Top 3 keeps it credible until UFC BJJ 13-15 fill out the divisions.
