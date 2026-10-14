@@ -82,7 +82,7 @@ textarea{height:200px;font-family:monospace;font-size:12px}
 .lp{background:var(--pn);border-radius:10px;padding:1vh 1vw;font-size:clamp(12px,1.7vw,19px);margin-bottom:1vh}.lp small{display:block;color:var(--mut);letter-spacing:.12em;text-transform:uppercase;font-size:.65em}
 .qt{width:100%;border-collapse:collapse;font-size:clamp(12px,1.7vw,19px);text-align:center}.qt td{padding:.4vh .3vw;border-bottom:1px solid #ffffff12}.qt td:first-child{text-align:left;font-weight:700}
 .pre{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2vh;text-align:center}.pre .vs{display:flex;align-items:center;gap:6vw}.pre img{height:clamp(80px,26vh,240px)}.pre h3{margin:0;font-size:clamp(18px,3.4vw,40px)}
-.tk{margin-top:.8vh;padding:.8vh 1.2vw;background:var(--pn);border-radius:10px;font-size:clamp(11px,1.5vw,16px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#cfd3e0}.tk b{color:var(--r);margin-right:.8em}.tk .nx{margin-left:2em;color:#fff;font-weight:700}</style></head><body>
+.tk{margin-top:.8vh;padding:.8vh 1.2vw;background:var(--pn);border-radius:10px;font-size:clamp(11px,1.5vw,16px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#cfd3e0}.tk b{color:var(--r);margin-right:.8em}.tk .nx{margin-left:2em;color:#fff;font-weight:700}.silsvg{filter:drop-shadow(0 0 10px var(--c))}.z{opacity:var(--o,0)}.z.hit{animation:hitf .5s 5}@keyframes hitf{0%,100%{opacity:var(--o,0)}50%{opacity:1;filter:brightness(1.6) drop-shadow(0 0 10px #f22)}}.rip{transform-box:fill-box;transform-origin:center;opacity:0;animation:rip .9s ease-out 3}@keyframes rip{0%{opacity:.9;transform:scale(.4)}100%{opacity:0;transform:scale(4)}}</style></head><body>
 <div id="app">
 <header><h1 id="ttl">Fight Night<small id="sub"></small></h1>
 <div class="seg" id="bjjSeg" style="display:none"><button data-k="champ">Champions</button><button data-k="rank">Rankings</button><button data-k="card">Card</button><button data-k="info">Info</button></div><div class="seg" id="modeSeg"><button data-m="auto">Auto</button><button data-m="week">Fight Week</button><button data-m="night">Fight Night</button></div>
@@ -106,7 +106,7 @@ textarea{height:200px;font-family:monospace;font-size:12px}
 <script>
 const $=s=>document.querySelector(s);
 const LS={g(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},s(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
-let ty=0,bro=null,lastTouch=0,tx=null,PREV={},showSil=LS.g("fn_sil",true),mode=LS.g("fn_mode","auto"),rev=LS.g("fn_rev",false),evId=LS.g("fn_ev",null),EV=[],cur=null,slide=0,ATH=LS.g("fn_ath",{});
+let ty=0,bro=null,lastTouch=0,tx=null,PREV={},silMode=LS.g("fn_silm","auto"),mode=LS.g("fn_mode","auto"),rev=LS.g("fn_rev",false),evId=LS.g("fn_ev",null),EV=[],cur=null,slide=0,ATH=LS.g("fn_ath",{});
 const BASE="https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard";
 const ymd=d=>d.toISOString().slice(0,10).replace(/-/g,"");
 const last=n=>n.trim().split(" ").slice(-1)[0];
@@ -117,7 +117,7 @@ function fig(c,s){const a=c.athlete||{},id=a.id||c.id;const x=ATH[id]||{};
 function bout(co,ev){const cs=co.competitors||[];const A=cs.find(c=>c.order===1)||cs[0],B=cs.find(c=>c.order===2)||cs[1];if(!A||!B)return null;
  const st=co.status||{},t=st.type||{},r=st.result||{};
  return{eid:ev.id,cid:co.id,id:co.id,date:co.date||co.startDate||ev.date,card:co.cardSegment?.description||co.cardSegment?.name||ev.shortName||ev.name||"Card",wc:(co.type?.text||co.type?.abbreviation||"")+(co.format?.regulation?.periods?` · ${co.format.regulation.periods} Rounds`:""),rounds:co.format?.regulation?.periods||3,
- state:t.state||"pre",done:!!t.completed,rd:st.period||1,clock:st.displayClock||"",method:r.shortDisplayName||r.displayName||t.detail||"",a:fig(A,"a"),b:fig(B,"b")}}
+ state:t.state||"pre",done:!!t.completed,rd:st.period||1,per:st.period||0,clock:st.displayClock||"",method:r.shortDisplayName||r.displayName||t.detail||"",a:fig(A,"a"),b:fig(B,"b")}}
 function parse(j){return(j.events||[]).sort((x,y)=>new Date(x.date)-new Date(y.date)).map(ev=>({id:ev.id,name:ev.shortName||ev.name,date:ev.date,bouts:(ev.competitions||[]).map(c=>bout(c,ev)).filter(Boolean)}))}
 const zt=f=>{const z={head:0,body:0,leg:0};f.stats.forEach(t=>{if(/att|pct|acc|%/.test(t.n))return;for(const k in z)if(t.n.includes(k))z[k]+=t.v});return z};
 function calcDmg(){EV.forEach(e=>e.bouts.forEach(b=>{[[b.a,b.b],[b.b,b.a]].forEach(([F,O])=>{const n=zt(O),k=(e.id||"")+F.id,pv=PREV[k];F.dmg=n;F.has=O.stats.length>0;F.flash={};if(pv)for(const z in n)if(n[z]>pv[z])F.flash[z]=1;PREV[k]=n})}))}
@@ -137,10 +137,18 @@ async function enrich(){if(!cur)return;const ids=[];list().forEach(b=>[b.a,b.b].
  LS.s("fn_ath",ATH);cur.bouts.forEach(b=>[b.a,b.b].forEach(f=>{const x=ATH[f.id]||{};Object.assign(f,{age:x.age,ht:x.ht,reach:x.reach,stance:x.stance})}))}
 const flagH=f=>f.flag?`<img src="${f.flag}" onerror="this.remove()" alt="">`:"";
 const ph=(f,s)=>`<img src="${f.img||sil(s==="a"?"#e0262f":"#2a6df4")}" onerror="this.onerror=null;this.src='${f.alt||sil(s==="a"?"#e0262f":"#2a6df4")}'" alt="">`;
-function silH(f,s){const d=f.dmg||{head:0,body:0,leg:0},fl=f.flash||{};const sh={head:'<ellipse cx="60" cy="34" rx="22" ry="26"/>',body:'<path d="M28 70h64l10 8 6 70-14 4-6-40-4 62H36l-4-62-6 40-14-4 6-70z"/>',leg:'<path d="M36 170h48l6 120H66l-6-80-6 80H30z"/>'};
- const base=Object.values(sh).join(""),ov=Object.keys(sh).map(k=>`<g class="z ${fl[k]?"hit":""}" style="--o:${Math.min(.85,d[k]*.07)}">${sh[k]}</g>`).join("");
- return`<div class="silwrap"><svg viewBox="0 0 120 300" class="silsvg"><g fill="#ffffff1c" stroke="${s==="a"?"#e0262f":"#2a6df4"}" stroke-width="2">${base}</g>${ov}</svg><small>${f.has?`HEAD ${d.head} · BODY ${d.body} · LEG ${d.leg}`:"AWAITING STRIKE DATA…"}</small></div>`}
-function fh(f,s,cls="",live=false){return`<div class="fighter ${s} ${cls}"><div class="ph">${f.flag?`<div class="fbg" style="background-image:url(${f.flag})"></div>`:""}${live&&showSil&&f.has?silH(f,s):ph(f,s)}</div><div class="nm"><b>${f.name}</b><i><span class="fl">${flagH(f)}</span> ${f.cc}</i></div></div>`}
+function silH(f,s){const d=f.dmg||{head:0,body:0,leg:0},fl=f.flash||{},tot=f.tot;
+ const o=k=>f.dmg?(d[k]?Math.min(.9,.2+d[k]*.07):0):(tot?Math.min(.55,tot*.025):0),hit=k=>f.flashAll||fl[k];
+ const Z={head:'<ellipse cx="100" cy="52" rx="24" ry="28"/><rect x="90" y="76" width="20" height="16" rx="5"/>',
+  body:'<path d="M58 98Q100 84 142 98L152 132 140 192 128 216H72L60 192 48 132Z"/><path d="M62 106L50 152 76 90M138 106L150 152 124 90" fill="none" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/><circle cx="76" cy="88" r="13"/><circle cx="124" cy="88" r="13"/>',
+  leg:'<path d="M72 212H100L98 290 92 382H62L70 290Z"/><path d="M100 212H128L130 290 138 382H108L102 290Z"/>'};
+ const C={head:[100,52],body:[100,150],leg:[100,300]};
+ const base=Object.values(Z).join("")+'<path d="M100 104V196M72 150H128" stroke="#ffffff14" stroke-width="2" fill="none"/>';
+ const ov=Object.keys(Z).map(k=>`<g class="z ${hit(k)?"hit":""}" style="--o:${o(k)}" fill="#ff2a2a" stroke="#ff2a2a" stroke-width="1">${Z[k]}</g>`).join("");
+ const rp=Object.keys(Z).filter(hit).map(k=>`<circle class="rip" cx="${C[k][0]}" cy="${C[k][1]}" r="14" fill="none" stroke="#ff5555" stroke-width="5"/>`).join("");
+ const cap=f.dmg?`HEAD ${d.head} · BODY ${d.body} · LEGS ${d.leg}`:tot!=null?`SIG STRIKES TAKEN ${tot}`:"AWAITING STRIKE DATA…";
+ return`<div class="silwrap"><svg viewBox="0 0 200 400" class="silsvg"><defs><linearGradient id="g${s}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4a5170"/><stop offset="1" stop-color="#1b1e29"/></linearGradient></defs><g fill="url(#g${s})" stroke="url(#g${s})" stroke-width="1">${base}</g>${ov}${rp}</svg><small>${cap}</small></div>`}
+function fh(f,s,cls="",live=false){return`<div class="fighter ${s} ${cls}"><div class="ph">${f.flag?`<div class="fbg" style="background-image:url(${f.flag})"></div>`:""}${live&&(silMode==="on"||(silMode==="auto"&&f.has))?silH(f,s):ph(f,s)}</div><div class="nm"><b>${f.name}</b><i><span class="fl">${flagH(f)}</span> ${f.cc}</i></div></div>`}
 function sh(b){const LV=liveStatsHTML(b);if(LV)return LV;const r=(k,l)=>(b.a[k]==null&&b.b[k]==null)?"":`<div class="row"><div>${b.a[k]??"-"}</div><span>${l}</span><div>${b.b[k]??"-"}</div></div>`;return`<div class="stats">${r("rec","Record")}${r("age","Age")}${r("ht","Height")}${r("reach","Reach")}${r("stance","Stance")}${app==="ufc"&&SC[b.cid+":"+b.a.id]?'<div class="tag" style="font-size:.65em;margin-top:.4vh">TAP FOR LIVE STATS</div>':""}</div>`}
 function tape(b,top,mid,ca="",cb="",live=false,foot=""){return`<div class="slide"><div class="tag">${top}</div><div class="wc">${b.wc}</div>${mid||""}<div class="tape">${fh(b.a,"a",ca,live)}${sh(b)}${fh(b.b,"b",cb,live)}</div>${foot}</div>`}
 function listSlide(card,all){return`<div class="slide"><div class="tag">${cur.name}</div><div class="wc">${card}</div><div class="list">`+all.filter(b=>b.card===card).map(b=>`<div class="bt"><div class="s">${ph(b.a,"a")}<div>${b.a.name}<small>${flagH(b.a)} ${b.a.rec}</small></div></div><div class="m"><b>VS</b>${b.wc}</div><div class="s">${ph(b.b,"b")}<div>${b.b.name}<small>${flagH(b.b)} ${b.b.rec}</small></div></div></div>`).join("")+`</div></div>`}
@@ -170,8 +178,10 @@ async function enrichLive(){if(!cur||app!=="ufc")return;const all=list();let b=a
  if(!b||!b.cid||!b.eid)return;
  await Promise.all([b.a,b.b].map(async f=>{try{const j=await (await fetch(`https://sports.core.api.espn.com/v2/sports/mma/leagues/ufc/events/${b.eid}/competitions/${b.cid}/competitors/${f.id}/statistics?lang=en&region=us`)).json();const m=parseStats(j);if(Object.keys(m).length)SCW[b.cid+":"+f.id]=m}catch(e){}}));
  const zm=m=>{if(!m)return null;const z={head:0,body:0,leg:0};let any=0;Object.values(m).forEach(t=>{if(/att|pct|perc/i.test(t.n))return;for(const k in z)if(t.n.toLowerCase().includes(k)){z[k]+=t.v||0;any=1}});return any?z:null};
- const zA=zm(SCW[b.cid+":"+b.a.id]),zB=zm(SCW[b.cid+":"+b.b.id]);
- if(b.state==="in"&&(zA||zB))[[b.a,zB],[b.b,zA]].forEach(([F,z])=>{if(!z)return;const k="z"+b.cid+F.id,pv=PREV[k];F.dmg=z;F.has=true;F.flash={};if(pv)for(const q in z)if(z[q]>pv[q])F.flash[q]=1;PREV[k]=z})}
+ const tt=m=>{let v=null;Object.values(m).forEach(t=>{const n=t.n.toLowerCase();if(/att|pct|perc/.test(n))return;if(/sigstrike|significantstrike|totalstrike/.test(n))v=Math.max(v||0,t.v||0)});return v};
+ if(b.state==="in")[[b.a,b.b],[b.b,b.a]].forEach(([F,O])=>{const m=SCW[b.cid+":"+O.id];if(!m)return;const z=zm(m),k="z"+b.cid+F.id;
+  if(z){const pv=PREV[k];F.dmg=z;F.has=true;F.flash={};if(pv)for(const q in z)if(z[q]>pv[q])F.flash[q]=1;PREV[k]=z}
+  else{const t=tt(m);if(t!=null){const pv=PREV["t"+k];F.tot=t;F.has=true;F.flashAll=pv!=null&&t>pv;PREV["t"+k]=t}}})}
 document.getElementById("main").addEventListener("click",e=>{if(app==="ufc"&&e.target.closest&&e.target.closest(".stats")){TOG=TOG==="tape"?"live":"tape";LS.s("fn_tog",TOG);render()}});
 
 let DELAY=LS.g("fn_delay",0),Q=[],NQ=[],SHOWN=null,NSHOWN=null,SCW={};
@@ -183,8 +193,16 @@ setInterval(()=>{if(app==="ufc"){if(applyDelay(false))render()}else if(app==="nf
 const setD=v=>{DELAY=Math.max(0,Math.min(300,v));LS.s("fn_delay",DELAY);$("#dVal").textContent=DELAY+"s";if(app==="ufc"?applyDelay(true):app==="nfl"?applyNfl(true):0)render()};
 $("#dM10").onclick=()=>setD(DELAY-10);$("#dM1").onclick=()=>setD(DELAY-1);$("#dP1").onclick=()=>setD(DELAY+1);$("#dP10").onclick=()=>setD(DELAY+10);$("#dVal").textContent=DELAY+"s";
 $("#clkSet").onclick=()=>{const m=$("#clkIn").value.trim().match(/^(\d+):(\d{2})$/);if(!m){alert("Type the clock like 4:12");return}if(!LIVEB){alert("No live fight right now");return}CK={k:LIVEB.id+":"+LIVEB.rd,start:Date.now(),anchor:{t:+m[1]*60+ +m[2],at:Date.now()},last:null};const e=document.getElementById("lclock");if(e)e.textContent=liveClock(LIVEB);$("#panel").classList.remove("show")};
+
+let FIRST={},FORCE={},PENDB=null;
+function started(b){if(FORCE[b.id])return true;const m=String(b.clock||"").match(/^(\d+):(\d+)$/),sv=m?+m[1]*60+ +m[2]:null,f=FIRST[b.id]||(FIRST[b.id]={sv,t:Date.now()});
+ if(b.per>1)return true;if(sv!=null&&f.sv!=null&&sv!==f.sv)return true;if(sv!=null&&f.sv==null)return true;
+ if(sv==null&&Date.now()-f.t>60000)return true;
+ const z=SC[b.cid+":"+b.a.id];return !!(z&&Object.values(z).some(t=>t.v>0))}
+document.getElementById("main").addEventListener("click",e=>{if(PENDB&&e.target.closest&&e.target.closest("#pend")){FORCE[PENDB.id]=true;render()}});
 function autoIdx(){const all=list();let i=all.findIndex(b=>b.state==="in");if(i<0){let k=-1;all.forEach((b,j)=>{if(b.state==="post"||b.done)k=j});i=k<0?0:k}return i}
 function nightView(){const all=list(),i=bro!=null?Math.max(0,Math.min(all.length-1,bro)):autoIdx(),b=all[i],nx=all[i+1],top=`${b.card} · Bout ${i+1} of ${all.length}`;
+ if(b.state==="in"&&!started(b)){PENDB=b;return tape(b,top,`<div class="next" id="pend">NEXT UP · FIGHT NOT STARTED<br><small style="font-size:.6em;color:#8b90a0">Tap here the moment the fight starts</small></div>`,"","",false,ticker(all,i))}
  if(b.state==="in"){LIVEB=b;return tape(b,top,`<div class="live"><span class="pill">● LIVE</span><span class="rd">ROUND ${b.rd} / ${b.rounds}</span><span class="clock" id="lclock">${liveClock(b)}</span></div>`,"","",true,ticker(all,i))}
  if(b.state==="post"||b.done){const w=b.a.win?b.a:b.b.win?b.b:null;
   const txt=(w?`${last(w.name)} WINS`:"DRAW / NO CONTEST")+` · ${b.method} · R${b.rd} ${b.clock}`;
@@ -208,7 +226,7 @@ function nav(d){if(app==="nfl")return;lastTouch=Date.now();if(isNight()){const n
 const mn=$("#main");mn.addEventListener("touchstart",e=>{tx=e.touches[0].clientX;ty=e.touches[0].clientY},{passive:true});
 mn.addEventListener("touchend",e=>{if(tx==null)return;const dx=e.changedTouches[0].clientX-tx;tx=null;if(Math.abs(dx)>50&&Math.abs(dx)>Math.abs(e.changedTouches[0].clientY-ty))nav(dx>0?1:-1)},{passive:true});
 document.addEventListener("keydown",e=>{if(e.key==="ArrowRight")nav(1);if(e.key==="ArrowLeft")nav(-1)});
-$("#silBtn").onclick=()=>{showSil=!showSil;LS.s("fn_sil",showSil);$("#silBtn").textContent="Silhouette: "+(showSil?"On":"Off");render()};$("#silBtn").textContent="Silhouette: "+(showSil?"On":"Off");
+const silTxt=()=>$("#silBtn").textContent="Live view: "+({auto:"Auto",on:"Silhouette",off:"Photos"})[silMode];$("#silBtn").onclick=()=>{silMode=({auto:"on",on:"off",off:"auto"})[silMode];LS.s("fn_silm",silMode);silTxt();render()};silTxt();
 $("#cardsBtn").onclick=()=>{if(app==="bjj"){openBjj();return}$("#evList").innerHTML=EV.map(e=>`<button class="btn evb" data-id="${e.id}">${e.name}<br><small>${new Date(e.date).toLocaleDateString(undefined,{weekday:"short",month:"short",day:"numeric"})} · ${e.bouts.length} bouts</small></button>`).join("")||"No events found";$("#evPanel").classList.add("show")};
 $("#evList").onclick=e=>{const b=e.target.closest(".evb");if(b){evId=b.dataset.id;LS.s("fn_ev",evId);Q=[];slide=0;bro=null;$("#evPanel").classList.remove("show");load()}};
 $("#evClose").onclick=()=>$("#evPanel").classList.remove("show");
