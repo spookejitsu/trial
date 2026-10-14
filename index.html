@@ -82,7 +82,7 @@ textarea{height:200px;font-family:monospace;font-size:12px}
 .lp{background:var(--pn);border-radius:10px;padding:1vh 1vw;font-size:clamp(12px,1.7vw,19px);margin-bottom:1vh}.lp small{display:block;color:var(--mut);letter-spacing:.12em;text-transform:uppercase;font-size:.65em}
 .qt{width:100%;border-collapse:collapse;font-size:clamp(12px,1.7vw,19px);text-align:center}.qt td{padding:.4vh .3vw;border-bottom:1px solid #ffffff12}.qt td:first-child{text-align:left;font-weight:700}
 .pre{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2vh;text-align:center}.pre .vs{display:flex;align-items:center;gap:6vw}.pre img{height:clamp(80px,26vh,240px)}.pre h3{margin:0;font-size:clamp(18px,3.4vw,40px)}
-.tk{margin-top:.8vh;padding:.8vh 1.2vw;background:var(--pn);border-radius:10px;font-size:clamp(11px,1.5vw,16px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#cfd3e0}.tk b{color:var(--r);margin-right:.8em}.tk .nx{margin-left:2em;color:#fff;font-weight:700}.silsvg{filter:drop-shadow(0 0 10px var(--c))}.z{opacity:var(--o,0)}.z.hit{animation:hitf .5s 5}@keyframes hitf{0%,100%{opacity:var(--o,0)}50%{opacity:1;filter:brightness(1.6) drop-shadow(0 0 10px #f22)}}.rip{transform-box:fill-box;transform-origin:center;opacity:0;animation:rip .9s ease-out 3}@keyframes rip{0%{opacity:.9;transform:scale(.4)}100%{opacity:0;transform:scale(4)}}</style></head><body>
+.tk{margin-top:.8vh;padding:.8vh 1.2vw;background:var(--pn);border-radius:10px;font-size:clamp(11px,1.5vw,16px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#cfd3e0}.tk b{color:var(--r);margin-right:.8em}.tk .nx{margin-left:2em;color:#fff;font-weight:700}.silsvg{filter:drop-shadow(0 0 10px var(--c))}.z{opacity:var(--o,0)}.z.hit{animation:hitf .5s 5}@keyframes hitf{0%,100%{opacity:var(--o,0)}50%{opacity:1;filter:brightness(1.6) drop-shadow(0 0 10px #f22)}}.rip{transform-box:fill-box;transform-origin:center;opacity:0;animation:rip .9s ease-out 3}@keyframes rip{0%{opacity:.9;transform:scale(.4)}100%{opacity:0;transform:scale(4)}}.win{background:linear-gradient(90deg,#b3121b,#e0262f);text-align:center;border-radius:12px;padding:1.4vh 1vw;margin:.6vh 0;animation:popin .6s}.win .wn{font-size:clamp(26px,6vw,72px);font-weight:900;text-transform:uppercase;line-height:1}.win .wm{font-size:clamp(14px,2.8vw,32px);font-weight:700;letter-spacing:.06em;margin-top:.5vh}@keyframes popin{0%{transform:scale(.8);opacity:0}100%{transform:scale(1);opacity:1}}</style></head><body>
 <div id="app">
 <header><h1 id="ttl">Fight Night<small id="sub"></small></h1>
 <div class="seg" id="bjjSeg" style="display:none"><button data-k="champ">Champions</button><button data-k="rank">Rankings</button><button data-k="card">Card</button><button data-k="info">Info</button></div><div class="seg" id="modeSeg"><button data-m="auto">Auto</button><button data-m="week">Fight Week</button><button data-m="night">Fight Night</button></div>
@@ -97,8 +97,8 @@ textarea{height:200px;font-family:monospace;font-size:12px}
 <h2>Sync with your TV</h2>
 <p style="font-size:13px;color:#8b90a0;margin:0 0 6px">Hold the board back by a number of seconds so it matches your TV. Add seconds until a result or round change shows at the same moment as on TV. The delay applies to both UFC and the Bears.</p>
 <div class="g"><button class="btn" id="dM10">-10s</button><button class="btn" id="dM1">-1s</button><div class="btn" id="dVal" style="text-align:center;font-weight:700">0s</div><button class="btn" id="dP1">+1s</button><button class="btn" id="dP10">+10s</button></div>
-<div class="g"><input id="clkIn" placeholder="Set round clock, e.g. 4:12" style="max-width:260px"><button class="btn" id="clkSet">Set clock</button></div>
-<h2>Setup</h2>
+<p style="font-size:13px;color:#8b90a0;margin:6px 0">Quick sync: while a fight is live, look at the round clock on your TV, tap the box and type it right away, then tap Sync. The board sets the delay for you.</p><div class="g"><input id="clkIn" placeholder="TV clock, e.g. 4:03" style="max-width:260px"><button class="btn pri" id="clkSet">Sync to TV</button></div>
+<h2>Setup</h2><div class="g"><button class="btn" id="dbgBtn">Show raw stats (debug)</button></div><pre id="dbg" style="display:none;white-space:pre-wrap;font-size:11px;max-height:160px;overflow:auto;background:#0006;padding:6px;border-radius:8px"></pre>
 <div class="g"><button class="btn" id="silBtn">Silhouette: On</button><select id="evSel"></select><button class="btn" id="rev">Reverse bout order</button><button class="btn pri" id="refresh">Refresh now</button></div>
 <p id="info" style="font-size:13px;color:#8b90a0"></p>
 <div class="g"><button class="btn pri" id="close">Done</button></div>
@@ -115,9 +115,9 @@ function fig(c,s){const a=c.athlete||{},id=a.id||c.id;const x=ATH[id]||{};
  return{id,name:a.displayName||a.fullName||"TBA",cc:a.flag?.alt||"",flag:a.flag?.href||"",rec:(c.records&&c.records[0]&&c.records[0].summary)||"-",
  img:id?`https://a.espncdn.com/i/headshots/mma/players/full/${id}.png`:(a.headshot?.href||""),alt:a.headshot?.href||"",age:x.age,ht:x.ht,reach:x.reach,stance:x.stance,win:c.winner,s,stats:(c.statistics||[]).map(t=>({n:String(t.name||t.abbreviation||t.displayName||"").toLowerCase(),v:parseFloat(t.value??t.displayValue)||0}))}}
 function bout(co,ev){const cs=co.competitors||[];const A=cs.find(c=>c.order===1)||cs[0],B=cs.find(c=>c.order===2)||cs[1];if(!A||!B)return null;
- const st=co.status||{},t=st.type||{},r=st.result||{};
+ const st=co.status||{},t=st.type||{},r=st.result||{},rs=RES[co.id]||{};
  return{eid:ev.id,cid:co.id,id:co.id,date:co.date||co.startDate||ev.date,card:co.cardSegment?.description||co.cardSegment?.name||ev.shortName||ev.name||"Card",wc:(co.type?.text||co.type?.abbreviation||"")+(co.format?.regulation?.periods?` · ${co.format.regulation.periods} Rounds`:""),rounds:co.format?.regulation?.periods||3,
- state:t.state||"pre",done:!!t.completed,rd:st.period||1,per:st.period||0,clock:st.displayClock||"",method:r.shortDisplayName||r.displayName||t.detail||"",a:fig(A,"a"),b:fig(B,"b")}}
+ state:t.state||"pre",done:!!t.completed,rd:rs.per||st.period||1,per:st.period||0,clock:rs.clock||st.displayClock||"",method:rs.m||r.shortDisplayName||r.displayName||t.detail||"",a:fig(A,"a"),b:fig(B,"b")}}
 function parse(j){return(j.events||[]).sort((x,y)=>new Date(x.date)-new Date(y.date)).map(ev=>({id:ev.id,name:ev.shortName||ev.name,date:ev.date,bouts:(ev.competitions||[]).map(c=>bout(c,ev)).filter(Boolean)}))}
 const zt=f=>{const z={head:0,body:0,leg:0};f.stats.forEach(t=>{if(/att|pct|acc|%/.test(t.n))return;for(const k in z)if(t.n.includes(k))z[k]+=t.v});return z};
 function calcDmg(){EV.forEach(e=>e.bouts.forEach(b=>{[[b.a,b.b],[b.b,b.a]].forEach(([F,O])=>{const n=zt(O),k=(e.id||"")+F.id,pv=PREV[k];F.dmg=n;F.has=O.stats.length>0;F.flash={};if(pv)for(const z in n)if(n[z]>pv[z])F.flash[z]=1;PREV[k]=n})}))}
@@ -126,7 +126,7 @@ async function load(){
   const j=await (await fetch(`${BASE}?dates=${ymd(d0)}-${ymd(d1)}&limit=200`)).json();
   EV=parse(j);calcDmg();LS.s("fn_cache",EV);$("#st").textContent="Updated "+new Date().toLocaleTimeString()
  }catch(e){EV=LS.g("fn_cache",[]);$("#st").textContent="Offline — showing last saved card"}
- if(app==="bjj"||app==="nfl")return;pick();await enrich();await enrichLive();snapPush();applyDelay(true);render()}
+ if(app==="bjj"||app==="nfl")return;pick();await enrich();await enrichLive();await enrichResults();snapPush();applyDelay(true);render()}
 function pick(){if(!EV.length){cur=null;return}let e=EV.find(x=>x.id==evId);
  if(!e){const now=Date.now();e=EV.find(x=>x.bouts.some(b=>b.state==="in"))||EV.find(x=>x.bouts.some(b=>b.state==="pre"))||EV[EV.length-1]}
  cur=e;const sel=$("#evSel");sel.innerHTML=EV.map(x=>`<option value="${x.id}" ${x.id==e.id?"selected":""}>${x.name} · ${new Date(x.date).toLocaleDateString()}</option>`).join("")}
@@ -160,15 +160,15 @@ const fm=t=>Math.floor(t/60)+":"+String(t%60).padStart(2,"0");
 function liveClock(b){const now=Date.now(),key=b.id+":"+b.rd,m=String(b.clock||"").match(/^(\d+):(\d+)$/),sv=m?+m[1]*60+ +m[2]:null;
  if(CK.k!==key)CK={k:key,start:now,anchor:null,last:sv};
  if(sv!=null&&sv!==CK.last)CK.anchor={t:sv,at:now};CK.last=sv;
- const rem=CK.anchor?CK.anchor.t-(now-CK.anchor.at)/1000:300-(now-CK.start)/1000;
- return(CK.anchor?"":"~")+fm(Math.max(0,Math.round(rem)))}
+ if(!CK.anchor)return"";
+ return fm(Math.max(0,Math.round(CK.anchor.t-(now-CK.anchor.at)/1000)))}
 setInterval(()=>{const e=document.getElementById("lclock");if(e&&LIVEB)e.textContent=liveClock(LIVEB)},1000);
-function ticker(all,i){const done=all.filter((b,j)=>j!==i&&(b.state==="post"||b.done)).slice(-3).map(b=>{const w=b.a.win?b.a:b.b.win?b.b:null;return w?`${last(w.name)} def. ${last((w===b.a?b.b:b.a).name)} · ${b.method}`:`${last(b.a.name)} vs ${last(b.b.name)} · ${b.method||"Draw"}`}),nx=all.slice(i+1).find(b=>b.state==="pre");
+function ticker(all,i){const done=all.filter((b,j)=>j!==i&&(b.state==="post"||b.done)).slice(-3).map(b=>{const w=b.a.win?b.a:b.b.win?b.b:null;return w?`${last(w.name)} def. ${last((w===b.a?b.b:b.a).name)} · ${mt(b)||"Final"}`:`${last(b.a.name)} vs ${last(b.b.name)} · ${mt(b)||"Final"}`}),nx=all.slice(i+1).find(b=>b.state==="pre");
  return`<div class="tk"><b>RESULTS</b>${done.join("  •  ")||"First fight of the night"}${nx?`<span class="nx">NEXT: ${last(nx.a.name)} vs ${last(nx.b.name)}</span>`:""}</div>`}
 
 let SC={},TOG=LS.g("fn_tog","live");
 function parseStats(j){const o={};const cats=(j&&j.splits&&j.splits.categories)||(j&&j.categories)||[];cats.forEach(c=>(c.stats||[]).forEach(t=>{o[t.name]={n:t.name,l:t.displayName||t.shortDisplayName||t.name,v:typeof t.value==="number"?t.value:parseFloat(t.displayValue)}}));return o}
-function fstats(m){const g={};Object.values(m).forEach(t=>{const k=t.n.replace(/(Landed|Attempted|Att|Pct|Percentage)$/i,""),ty=/(Attempted|Att)$/i.test(t.n)?"att":/(Pct|Percentage)$/i.test(t.n)?"pct":"v";(g[k]=g[k]||{label:t.l.replace(/\s*(Landed|Attempted|Att\.?|%|Percentage)$/i,"")})[ty]=t.v});return g}
+function fstats(m){const g={};Object.values(m).forEach(t=>{const k=t.n.replace(/(Landed|Attempted|Attempts?|Att|Pct|Percentage|Accuracy)$/i,""),ty=/(Attempted|Attempts?|Att)$/i.test(t.n)?"att":/(Pct|Percentage|Accuracy)$/i.test(t.n)?"pct":"v";(g[k]=g[k]||{label:t.l.replace(/\s*(Landed|Attempted|Attempts?|Att\.?|%|Percentage|Accuracy)$/i,"")});if(ty==="v"||g[k][ty]==null)g[k][ty]=t.v});return g}
 function liveStatsHTML(b){if(TOG==="tape"||app!=="ufc"||!b.cid)return null;const MA=SC[b.cid+":"+b.a.id],MB=SC[b.cid+":"+b.b.id];if(!MA||!MB)return null;
  const GA=fstats(MA),GB=fstats(MB),pri=[/sigstrike|significantstrike/i,/totalstrike/i,/takedown/i,/knockdown/i,/submission/i,/control/i,/head/i,/body/i,/leg/i,/clinch/i,/ground/i,/reversal/i],sc=k=>{const i=pri.findIndex(r=>r.test(k));return i<0?99:i};
  const f=g=>g.v==null||isNaN(g.v)?"-":g.v+(g.att!=null?"/"+g.att:"");
@@ -177,7 +177,7 @@ function liveStatsHTML(b){if(TOG==="tape"||app!=="ufc"||!b.cid)return null;const
 async function enrichLive(){if(!cur||app!=="ufc")return;const all=list();let b=all.find(x=>x.state==="in");if(!b){for(let i=all.length-1;i>=0;i--)if(all[i].state==="post"||all[i].done){b=all[i];break}}
  if(!b||!b.cid||!b.eid)return;
  await Promise.all([b.a,b.b].map(async f=>{try{const j=await (await fetch(`https://sports.core.api.espn.com/v2/sports/mma/leagues/ufc/events/${b.eid}/competitions/${b.cid}/competitors/${f.id}/statistics?lang=en&region=us`)).json();const m=parseStats(j);if(Object.keys(m).length)SCW[b.cid+":"+f.id]=m}catch(e){}}));
- const zm=m=>{if(!m)return null;const z={head:0,body:0,leg:0};let any=0;Object.values(m).forEach(t=>{if(/att|pct|perc/i.test(t.n))return;for(const k in z)if(t.n.toLowerCase().includes(k)){z[k]+=t.v||0;any=1}});return any?z:null};
+ const zm=m=>{if(!m)return null;const z={head:0,body:0,leg:0};let any=0;Object.values(m).forEach(t=>{if(/att|pct|perc|acc|rate|avg|average|per|ratio|def|abs|%/i.test(t.n)||!Number.isInteger(t.v))return;for(const k in z)if(t.n.toLowerCase().includes(k)){z[k]=Math.max(z[k],t.v||0);any=1}});return any?z:null};
  const tt=m=>{let v=null;Object.values(m).forEach(t=>{const n=t.n.toLowerCase();if(/att|pct|perc/.test(n))return;if(/sigstrike|significantstrike|totalstrike/.test(n))v=Math.max(v||0,t.v||0)});return v};
  if(b.state==="in")[[b.a,b.b],[b.b,b.a]].forEach(([F,O])=>{const m=SCW[b.cid+":"+O.id];if(!m)return;const z=zm(m),k="z"+b.cid+F.id;
   if(z){const pv=PREV[k];F.dmg=z;F.has=true;F.flash={};if(pv)for(const q in z)if(z[q]>pv[q])F.flash[q]=1;PREV[k]=z}
@@ -186,27 +186,36 @@ document.getElementById("main").addEventListener("click",e=>{if(app==="ufc"&&e.t
 
 let DELAY=LS.g("fn_delay",0),Q=[],NQ=[],SHOWN=null,NSHOWN=null,SCW={};
 const pickSnap=a=>{if(!a.length)return null;const lim=Date.now()-DELAY*1000;let p=a[0];for(const x of a)if(x.t<=lim)p=x;return p};
-function snapPush(){Q.push({t:Date.now(),EV,cur,SC:{...SCW}});const k=Date.now()-DELAY*1000-120000;Q=Q.filter((x,i)=>x.t>k||i===Q.length-1)}
-function applyDelay(f){const p=pickSnap(Q);if(!p||(!f&&p===SHOWN))return false;SHOWN=p;EV=p.EV;cur=p.cur;SC=p.SC;return true}
+function snapPush(){if(!POSTINIT){(cur?cur.bouts:[]).forEach(b=>{if(b.state==="post"||b.done)POSTSEEN[b.id]=0});POSTINIT=true}Q.push({t:Date.now(),EV,cur,SC:{...SCW}});const k=Date.now()-DELAY*1000-120000;Q=Q.filter((x,i)=>x.t>k||i===Q.length-1)}
+function applyDelay(f){const p=pickSnap(Q);if(!p||(!f&&p===SHOWN))return false;SHOWN=p;EV=p.EV;cur=p.cur;SC=p.SC;if(cur)cur.bouts.forEach(b=>{if((b.state==="post"||b.done)&&POSTSEEN[b.id]==null)POSTSEEN[b.id]=Date.now()});return true}
 function applyNfl(f){NQ=NQ.filter((x,i)=>Date.now()-x.t<DELAY*1000+120000||i===NQ.length-1);const p=pickSnap(NQ);if(!p||(!f&&p===NSHOWN))return false;NSHOWN=p;NG=p.NG;NS=p.NS;return true}
 setInterval(()=>{if(app==="ufc"){if(applyDelay(false))render()}else if(app==="nfl"){if(applyNfl(false))render()}},1000);
 const setD=v=>{DELAY=Math.max(0,Math.min(300,v));LS.s("fn_delay",DELAY);$("#dVal").textContent=DELAY+"s";if(app==="ufc"?applyDelay(true):app==="nfl"?applyNfl(true):0)render()};
 $("#dM10").onclick=()=>setD(DELAY-10);$("#dM1").onclick=()=>setD(DELAY-1);$("#dP1").onclick=()=>setD(DELAY+1);$("#dP10").onclick=()=>setD(DELAY+10);$("#dVal").textContent=DELAY+"s";
-$("#clkSet").onclick=()=>{const m=$("#clkIn").value.trim().match(/^(\d+):(\d{2})$/);if(!m){alert("Type the clock like 4:12");return}if(!LIVEB){alert("No live fight right now");return}CK={k:LIVEB.id+":"+LIVEB.rd,start:Date.now(),anchor:{t:+m[1]*60+ +m[2],at:Date.now()},last:null};const e=document.getElementById("lclock");if(e)e.textContent=liveClock(LIVEB);$("#panel").classList.remove("show")};
+$("#dbgBtn").onclick=()=>{const d=$("#dbg");const o=Object.keys(SC).map(k=>k+"\n"+Object.values(SC[k]).map(t=>"  "+t.n+" = "+t.v).join("\n")).join("\n\n");d.textContent=o||"No stats received yet";d.style.display="block"};let CKT=0;$("#clkIn").onfocus=()=>{CKT=Date.now()};
+$("#clkSet").onclick=()=>{const m=$("#clkIn").value.trim().match(/^(\d+):(\d{2})$/);if(!m){alert("Type the TV clock like 4:03");return}if(!LIVEB||!document.getElementById("lclock")){alert("Sync works while a fight is live on the board");return}
+ const bm=liveClock(LIVEB).replace("~","").match(/^(\d+):(\d{2})$/);if(!bm)return;const board=+bm[1]*60+ +bm[2],tv=+m[1]*60+ +m[2]-(CKT?(Date.now()-CKT)/1000:0);
+ setD(Math.round(DELAY+(tv-board)));$("#clkIn").value="";$("#panel").classList.remove("show")};
 
 let FIRST={},FORCE={},PENDB=null;
 function started(b){if(FORCE[b.id])return true;const m=String(b.clock||"").match(/^(\d+):(\d+)$/),sv=m?+m[1]*60+ +m[2]:null,f=FIRST[b.id]||(FIRST[b.id]={sv,t:Date.now()});
  if(b.per>1)return true;if(sv!=null&&f.sv!=null&&sv!==f.sv)return true;if(sv!=null&&f.sv==null)return true;
- if(sv==null&&Date.now()-f.t>60000)return true;
  const z=SC[b.cid+":"+b.a.id];return !!(z&&Object.values(z).some(t=>t.v>0))}
 document.getElementById("main").addEventListener("click",e=>{if(PENDB&&e.target.closest&&e.target.closest("#pend")){FORCE[PENDB.id]=true;render()}});
+
+var RES={},POSTSEEN={},DISMISS={},POSTINIT=false,ANNB=null;const ANN=45;
+const mt=b=>/^(final)?$/i.test(b.method||"")?"":b.method;
+async function enrichResults(){if(!cur)return;await Promise.all(cur.bouts.filter(b=>(b.state==="post"||b.done)&&b.cid&&b.eid&&!(RES[b.cid]&&(RES[b.cid].m||RES[b.cid].n>=12))).map(async b=>{const r0=RES[b.cid]||{n:0};r0.n++;RES[b.cid]=r0;
+ try{const j=await (await fetch(`https://sports.core.api.espn.com/v2/sports/mma/leagues/ufc/events/${b.eid}/competitions/${b.cid}/status?lang=en&region=us`)).json();const q=j.result||{},m=q.shortDisplayName||q.displayName||q.description;
+  if(m){r0.m=m;if(j.period)r0.per=j.period;if(j.displayClock)r0.clock=j.displayClock;b.method=m;b.rd=r0.per||b.rd;b.clock=r0.clock||b.clock}}catch(e){}}))}
+document.getElementById("main").addEventListener("click",e=>{if(ANNB&&e.target.closest&&e.target.closest(".win")){DISMISS[ANNB.id]=true;render()}});
 function autoIdx(){const all=list();let i=all.findIndex(b=>b.state==="in");if(i<0){let k=-1;all.forEach((b,j)=>{if(b.state==="post"||b.done)k=j});i=k<0?0:k}return i}
-function nightView(){const all=list(),i=bro!=null?Math.max(0,Math.min(all.length-1,bro)):autoIdx(),b=all[i],nx=all[i+1],top=`${b.card} · Bout ${i+1} of ${all.length}`;
+function nightView(){const all=list(),annI=(()=>{let k=-1,t=0;all.forEach((x,j)=>{const q=POSTSEEN[x.id];if((x.state==="post"||x.done)&&q>0&&Date.now()-q<ANN*1000&&!DISMISS[x.id]&&q>t){k=j;t=q}});return k})(),i=bro!=null?Math.max(0,Math.min(all.length-1,bro)):(annI>=0?annI:autoIdx()),b=all[i],nx=all[i+1],top=`${b.card} · Bout ${i+1} of ${all.length}`;
  if(b.state==="in"&&!started(b)){PENDB=b;return tape(b,top,`<div class="next" id="pend">NEXT UP · FIGHT NOT STARTED<br><small style="font-size:.6em;color:#8b90a0">Tap here the moment the fight starts</small></div>`,"","",false,ticker(all,i))}
  if(b.state==="in"){LIVEB=b;return tape(b,top,`<div class="live"><span class="pill">● LIVE</span><span class="rd">ROUND ${b.rd} / ${b.rounds}</span><span class="clock" id="lclock">${liveClock(b)}</span></div>`,"","",true,ticker(all,i))}
- if(b.state==="post"||b.done){const w=b.a.win?b.a:b.b.win?b.b:null;
-  const txt=(w?`${last(w.name)} WINS`:"DRAW / NO CONTEST")+` · ${b.method} · R${b.rd} ${b.clock}`;
-  return tape(b,top,`<div class="banner">${txt}</div>`+(nx?`<div class="next">NEXT: <b>${nx.a.name}</b> vs <b>${nx.b.name}</b></div>`:`<div class="next">That's a wrap!</div>`),b.a.win?"win":w?"lose":"",b.b.win?"win":w?"lose":"")}
+ if(b.state==="post"||b.done){ANNB=(annI>=0&&i===annI)?b:null;const w=b.a.win?b.a:b.b.win?b.b:null,m=mt(b)||"",dec=/dec/i.test(m),ck=b.clock&&b.clock!=="0:00"?b.clock:"";
+  const l2=!m?"FINAL":dec?`${m.toUpperCase()} · AFTER ${b.rd} ROUNDS`:`BY ${m.toUpperCase()} · ${ck?ck+" · ":""}ROUND ${b.rd}`;
+  return tape(b,top,`<div class="win"><div class="wn">${w?last(w.name)+" WINS":"DRAW / NO CONTEST"}</div><div class="wm">${l2}</div></div>`+(nx?`<div class="next">NEXT: <b>${nx.a.name}</b> vs <b>${nx.b.name}</b></div>`:`<div class="next">That's a wrap!</div>`),b.a.win?"win":w?"lose":"",b.b.win?"win":w?"lose":"")}
  return tape(b,top,`<div class="next">NEXT: <b>${b.a.name}</b> vs <b>${b.b.name}</b></div>`)}
 function render(){const m=$("#main");$("#sub").textContent=app==="nfl"?"Chicago Bears":(cur?cur.name:"");$("#cardsBtn").style.display=app==="nfl"?"none":"";
  $("#modeSeg").style.display=app==="ufc"?"":"none";$("#bjjSeg").style.display=app==="bjj"?"":"none";$("#st").style.display=app==="ufc"?"":"none";document.querySelectorAll("#modeSeg button").forEach(x=>x.classList.toggle("on",x.dataset.m===mode));
@@ -218,7 +227,7 @@ setInterval(()=>{if(!isNight()&&Date.now()-lastTouch>30000){slide++;if(app==="bj
 $("#modeSeg").onclick=e=>{if(e.target.dataset.m){mode=e.target.dataset.m;LS.s("fn_mode",mode);render()}};
 $("#gear").onclick=()=>{$("#info").textContent=cur?`${cur.bouts.length} bouts · mode: ${mode}`:"";$("#panel").classList.add("show")};
 $("#close").onclick=()=>$("#panel").classList.remove("show");
-$("#evSel").onchange=e=>{evId=e.target.value;LS.s("fn_ev",evId);Q=[];load()};
+$("#evSel").onchange=e=>{evId=e.target.value;LS.s("fn_ev",evId);Q=[];POSTINIT=false;load()};
 $("#rev").onclick=()=>{rev=!rev;LS.s("fn_rev",rev);render()};
 $("#refresh").onclick=load;
 $("#fs").onclick=()=>{const e=document.documentElement;(e.requestFullscreen||e.webkitRequestFullscreen||(()=>{})).call(e);try{navigator.wakeLock&&navigator.wakeLock.request("screen")}catch(x){}};
@@ -228,7 +237,7 @@ mn.addEventListener("touchend",e=>{if(tx==null)return;const dx=e.changedTouches[
 document.addEventListener("keydown",e=>{if(e.key==="ArrowRight")nav(1);if(e.key==="ArrowLeft")nav(-1)});
 const silTxt=()=>$("#silBtn").textContent="Live view: "+({auto:"Auto",on:"Silhouette",off:"Photos"})[silMode];$("#silBtn").onclick=()=>{silMode=({auto:"on",on:"off",off:"auto"})[silMode];LS.s("fn_silm",silMode);silTxt();render()};silTxt();
 $("#cardsBtn").onclick=()=>{if(app==="bjj"){openBjj();return}$("#evList").innerHTML=EV.map(e=>`<button class="btn evb" data-id="${e.id}">${e.name}<br><small>${new Date(e.date).toLocaleDateString(undefined,{weekday:"short",month:"short",day:"numeric"})} · ${e.bouts.length} bouts</small></button>`).join("")||"No events found";$("#evPanel").classList.add("show")};
-$("#evList").onclick=e=>{const b=e.target.closest(".evb");if(b){evId=b.dataset.id;LS.s("fn_ev",evId);Q=[];slide=0;bro=null;$("#evPanel").classList.remove("show");load()}};
+$("#evList").onclick=e=>{const b=e.target.closest(".evb");if(b){evId=b.dataset.id;LS.s("fn_ev",evId);Q=[];POSTINIT=false;slide=0;bro=null;$("#evPanel").classList.remove("show");load()}};
 $("#evClose").onclick=()=>$("#evPanel").classList.remove("show");
 let app="home";
 const DEFBJ0="Event: UFC BJJ — example, edit me\nCard: Main Card\nLight Heavyweight | Mason Fowler | Pedro Machado | US | BR\nWomen's Bantamweight | Ffion Davies | Cassia Moura | GB | BR";
@@ -273,7 +282,7 @@ $("#bjjSave").onclick=()=>{BJT=$("#bjjTxt").value;LS.s("fn_bjjtxt",BJT);cur=bjjE
 $("#bjjClose").onclick=()=>$("#bjjPanel").classList.remove("show");
 $("#bjjSeg").onclick=e=>{const k=e.target.dataset.k;if(!k)return;const K=bjjSlides(),ix=K.findIndex(x=>x.k===k);if(ix>=0){slide=ix;lastTouch=Date.now();render()}};
 $("#homeBtn").onclick=()=>{$("#home2").classList.add("hide");$("#home").classList.remove("hide")};
-function go(a){Q=[];NQ=[];SHOWN=null;NSHOWN=null;app=a;slide=0;bro=null;$("#home").classList.add("hide");$("#home2").classList.add("hide");if(a==="nfl"){render();nflLoad();return}if(a==="bjj"){cur=bjjEvent();render();loadBjj()}else{pick();render();load()}}
+function go(a){Q=[];POSTINIT=false;NQ=[];SHOWN=null;NSHOWN=null;app=a;slide=0;bro=null;$("#home").classList.add("hide");$("#home2").classList.add("hide");if(a==="nfl"){render();nflLoad();return}if(a==="bjj"){cur=bjjEvent();render();loadBjj()}else{pick();render();load()}}
 $("#home").onclick=e=>{const b=e.target.closest("button");if(!b)return;if(b.dataset.a==="nfl"){$("#home").classList.add("hide");$("#home2").classList.remove("hide")}else go(b.dataset.a)}
 $("#home2").onclick=e=>{const b=e.target.closest("button");if(!b)return;if(b.dataset.a==="bears")go("nfl");if(b.dataset.a==="back"){$("#home2").classList.add("hide");$("#home").classList.remove("hide")}};;
 
