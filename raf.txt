@@ -1,0 +1,56 @@
+# RAF board data. Edit this file on GitHub and the board updates itself within about 5 minutes.
+# Source: the event pages on realamericanfreestyle.com (read Oct 16, 2026).
+# Each Event: line starts a new card. The 📅 Cards button on the board switches between them. Put them in date order.
+# Bout line: Weight | Fighter A | Fighter B | Country A | Country B | Record A | Record B | Photo A URL | Photo B URL
+# Countries are 2-letter codes, filled in from the site's flags and general knowledge, so double-check them.
+# The site shows no records, so those are blank. Photo links point at the site's own images.
+# The Card: headings are my groupings of the site's bout order (the site only labels main and co-main events).
+# Champions and rankings (optional) are shared by all events:  Champion: Weight | Name | Country | Record
+
+
+Event: RAF 14 · Oct 23 · Las Vegas
+Card: Headliners
+Middleweight · Championship | Arman Tsarukyan | Dillon Danis | AM | US | | | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6abbe92b99eefa1af9ba5105_6a7b05069c22b49105fc9efd_123456789.webp | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6abbe92b99eefa1af9ba5120_6a7b057b4c4c59e9c54d162c_rorki.webp
+Catchweight | Khamzat Chimaev | Robbie Lawler | AE | US | | | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6abbe90b5a9e80b0f780a45c_6aad76fc3d463e8976366161_Chimaev1.webp | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6ab3d9adfbefe46868e20c59_Lawlers.webp
+Card: Fight Card · Part 1
+Strawweight · Championship | Lucia Yepez | Sarah Hildebrandt | EC | US | | | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6abbeca7bcfc9bb6558a37b7_Yeoe.webp | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6a58590a4e60ac66cefaa775_69cf14310b30bff524770420_6920aad1dd96ece37b4dc4c0_Hildebrandt_PNG1.webp
+Featherweight | Sebastian Rivera | Vito Arujau | PR | US | | | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6abbed43d5d15564b577553f_Seb.webp | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6abbe992f9f39d2f50924dfa_6a9ac2f45463aef2b6b6cc03_Vito.webp
+Middleweight | Jordan Burroughs | Michael Caliendo | US | US | | | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6abbe92515892b11eca67116_6a9abe512f65913ee352b53f_Jordan.webp | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6abbe91963cb6592c594d3e0_6aad7d134670ee6dbd560b2d_Caliendo1.webp
+Lightweight · Championship | Jordan Oliver | Ridge Lovett | US | US | | | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6abbe9bbae6930fca0bc8d0b_6a850a9490363c31cee20fe3_d-20cx.webp | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6abbe9bbae6930fca0bc8d2f_6a850addd59ddae22f79e93f_423651456.webp
+Heavyweight | Yonger Bastida | Greg Kerkvliet | CU | US | | | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6abbe91963cb6592c594d3cc_6a65131ddb0d110395ce1ee3_wdsx.webp | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6a67975e3b7bf7fb5d478ff1_wed.webp
+Card: Fight Card · Part 2
+Cruiserweight | Mekhi Lewis | Akhmed Gadzhimagomedov | US | RU | | | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6ab30f4f3414118f75ff6e75_500x500-(1).png | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6ab30eeb2d39bc7c8af45caa_500x500.png
+Middleweight | Bella Mir | Hope Chase | US | US | | | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6ab562f7911e3a0f25e4ed90_MI.webp | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6ab5624888389b7452bd9f32_Chas.webp
+Catchweight | Pat Downey | Magomed Magomedkerimov | US | RU | | | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6a5d9949c9e0742e0e6ffc99_Frame-20w95585079.webp | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6ab1cbe3b873959bb5ef4056_Mago.webp
+Catchweight | Brendan Allen | Alexander Shlemenko | US | RU | | | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6ab5538671b3641cad252084_Allen.webp | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6abbea0e0e971ce644d3cddd_6a860c3394394b129bf4b2a0_Frame-2020vc-2095585079.webp
+Featherweight | Juan Archuleta | Dylan Ragusin | US | US | | | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6acf561c91a0a275de06bfcd_1323223.webp | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6a9213688c47dcaa081b5a4e_097807980789.webp
+
+Event: RAF Abu Dhabi · Nov 14 · Abu Dhabi, UAE
+Card: Headliners
+Cruiserweight Crossover · Championship | Khamzat Chimaev | Colby Covington | AE | US | | | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6abbe90b5a9e80b0f780a45c_6aad76fc3d463e8976366161_Chimaev1.webp | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6abbe90166b33d24e8341656_6aad74bd1308827fd20693e0_Colby1.webp
+Catchweight Crossover | Arman Tsarukyan | Neiman Gracie | AM | BR | | | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6abbe92b99eefa1af9ba5105_6a7b05069c22b49105fc9efd_123456789.webp | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6abbe92515892b11eca67121_6a9ac7de75ce2733eade4232_Gracie.png
+Card: Fight Card · Part 1
+Welterweight Crossover | Zabit Magomedsharipov | Giga Chikadze | RU | GE | | | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6ac458f2270c651adf58fa55_Z.webp | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6ac45b2ef6b3e7a7c3440926_Chi.webp
+Middleweight · Championship | Kennedy Blades | Bella Mir | US | US | | | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6abbe9bdae6930fca0bc8d82_6aad7826fac0eceab833f2d2_Blades-202.webp | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6ab562f7911e3a0f25e4ed90_MI.webp
+Light Heavyweight | Abdulrashid Sadulaev | Dauren Kurugliev | RU | GR | | | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6abbe92b99eefa1af9ba5100_6a9ab7d7282a4ff54a47af62_Abdu.webp | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6acc470f6ecafc0f3ed58500_Kur.webp
+Cruiserweight · Championship | Kyle Dake | Alp Arslan Begenjov | US | TM | | | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6abbe90c5a9e80b0f780a4a9_6a9ac82e8fa052c3349b942d_Dake.png | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6ac6ab5a35af8eb8f77721a1_Beg.webp
+Lightweight Crossover | Umar Nurmagomedov | Urijah Faber | RU | US | | | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6abf01d9c6f741827afd8d60_Umadr.webp | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6abf28c41f335eb338cb0f0e_fab.webp
+Middleweight | Jordan Burroughs | Azamat Nurykau | US | BY | | | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6abbe92515892b11eca67116_6a9abe512f65913ee352b53f_Jordan.webp | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6ac45a4649137b4a77b8e559_Nu.webp
+Card: Fight Card · Part 2
+Light Heavyweight · Championship | Kyle Snyder | Shamil Erdogan | US | TR | | | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6abbe8fe66b33d24e8341621_6a9ac45328f0dfef849793e0_Snyder-2.webp | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6abf275d2ac01968de6c0fb2_ER.webp
+Light Heavyweight Crossover | Murtaza Talha | Osama Elsaidy | BH | EG | | | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6acc4903cb32ca6bef2af16c_Ta.webp | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6acfc924486c5d8511248956_El.webp
+Cruiserweight | Zahid Valencia | Khidir Saipudinov | US | BH | | | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6abbe9bdae6930fca0bc8d78_6a9abd16e4875b062d4725d9_Zahid1.webp | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6a5858d25538ad94bfefe911_69cee2b25ed3c193ed0c54c5_69caebb5e32e3f302137fd7a_Saipudinov.webp
+Lightweight | Ali AlQaisi | Hamza Kooheji | JO | BH | | | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6acc4b4afb0553a29520ce6d_AL.webp | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6acc4a4a4b338cc213a10180_Ko.webp
+Catchweight | Diana Avsaragova | Julianna Peña | RU | US | | | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6abbe9beae6930fca0bc8d98_6aad789e6bae05704bca9dde_Diana1.png | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6acfc97fae9e6187a4a80ed4_Pen.webp
+
+Event: RAF 15 · Nov 28 · Chicago
+Card: Fight Card
+Lightweight Crossover | Danny Sabatello | Jacob Schultz | US | US | | | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6ad16bb391cc21e42e95fe8c_Saba.webp | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6ad22b05376c910235b74ac0_Sch.webp
+Cruiserweight Crossover | Donald Cerrone | Anthony Pettis | US | US | | | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6ac6602efb142ef841606b5c_Cer.webp | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6ac660fc814bd3eaebed4e9c_Pet.webp
+Featherweight Crossover · Championship | Cayden Henschel | Conor Beebe | US | US | | | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6abbe9c47de53be5ee43e263_6aad8d7ffe915b3cbe4e040b_Cayden1.webp | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6ad1703e8b7bf5a24da53442_Conor.webp
+Lightweight Crossover | Raúl Rosas Jr. | Clay Guida | MX | US | | | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6ad22fe4326a54dceb3c24cd_999.webp | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6ad193f14bc3e6104dcf90f7_Guide.webp
+Bantamweight | Matt Ramos | Roman Bravo-Young | PH | MX | | | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6ad22f74320758c12f7c8bc6_Ramoss.webp | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6ad22ebb68fd4a60b27f312f_RBY.webp
+Bantamweight Crossover | Haley Augello | Miranda Maverick | US | US | | | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6ad2641d189bda605c9a103e_Aug.webp | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6ad2646c189bda605c9a2222_Mav.webp
+
+Event: RAF 16 · Dec 19 · Long Island, NY
+# No bouts announced yet. Add them here when the site lists them.
