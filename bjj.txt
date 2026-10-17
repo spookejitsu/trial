@@ -44,5 +44,14 @@ Rank: Women's Featherweight (145 lbs) | 2 | Aurelie Le Vern | 3-1-0
 Rank: Women's Featherweight (145 lbs) | 3 | Bella Mir | 3-0-0
 
 # Next event (optional). Bouts: Weight | Fighter A | Fighter B | Country A | Country B | Record A | Record B
-Event: UFC BJJ
-# Card: Main Card
+Event: UFC BJJ 13 · Oct 29 · Las Vegas
+Card: Main Card
+Middleweight (Title) | William Tackett | Jay Rodriguez | US |
+Bantamweight (Title) | Jalen Fonacier | Kleber Barboza | US | | 4-0 |
+Light Heavyweight | Nick Rodriguez | Nata Tenca | US |
+Women's Bantamweight | Ffion Davies | Jaine Fragoso | GB |
+Card: Prelims
+Heavyweight | Pat Downey | Ian Daube | |
+Welterweight | Liam Crelinsten | Seilkhan Bolatbek | |
+Middleweight | Martin Gonzalez | Joao Nicolite | |
+Lightweight | Tristan Sainz | David Weintraub | |
