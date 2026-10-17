@@ -259,11 +259,15 @@ function nightView(){const all=list(),annI=(()=>{let k=-1,t=0;all.forEach((x,j)=
   return tape(b,top,`<div class="win"><div class="wn">${w?last(w.name)+" WINS":"DRAW / NO CONTEST"}</div><div class="wm">${l2}</div></div>`+(nx?`<div class="next">NEXT: <b>${nx.a.name}</b> vs <b>${nx.b.name}</b></div>`:`<div class="next">That's a wrap!</div>`),b.a.win?"win":w?"lose":"",b.b.win?"win":w?"lose":"")}
  return tape(b,top,`<div class="next">NEXT: <b>${b.a.name}</b> vs <b>${b.b.name}</b></div>`)}
 function render(){rafApply();_render();rctlDraw();if(app==="nfl")nflMq()}
+let PK="",PSIG="";
+function put(m,html){const key=html.replace(/(id="lclock">)[^<]*/,"$1").replace(/(font-size:11px">)[^<]*/,"$1");if(key===PK&&m.firstChild)return;
+ const tg=(html.match(/class="tag"[^>]*>([^<]*)/)||[])[1]||"",wc=(html.match(/class="wc"[^>]*>([^<]*)/)||[])[1]||"",ex=(html.match(/class="(win|live|next|pre|nb)"/)||[])[1]||"",sig=tg+"|"+wc+"|"+ex;
+ PK=key;m.innerHTML=html;if(sig===PSIG&&m.firstElementChild)m.firstElementChild.style.animation="none";PSIG=sig}
 function _render(){const m=$("#main");$("#sub").textContent=app==="nfl"?NT.name:(cur?cur.name:"");$("#cardsBtn").style.display=app==="nfl"?"none":"";
  $("#modeSeg").style.display=app==="ufc"?"":"none";$("#bjjSeg").style.display=isTxt()&&!isNight()?"":"none";$("#st").style.display=app==="ufc"?"":"none";document.querySelectorAll("#modeSeg button").forEach(x=>x.classList.toggle("on",x.dataset.m===mode));
- if(app==="nfl"){m.innerHTML=nflHTML();return}if(!cur){m.innerHTML=`<div class="slide"><div class="wc">No upcoming UFC events found</div><div class="tag">${$("#st").textContent}</div></div>`;return}
- if(isNight()){m.innerHTML=nightView();return}
- const s=weekSlides();slide%=s.length;m.innerHTML=s[slide];if(isTxt()){const K=bjjSlides();document.querySelectorAll("#bjjSeg button").forEach(b=>{const c0=K[slide];b.classList.toggle("on",!!c0&&c0.k===b.dataset.k);b.style.display=K.some(x=>x.k===b.dataset.k)?"":"none"})}}
+ if(app==="nfl"){put(m,nflHTML());return}if(!cur){PK="";m.innerHTML=`<div class="slide"><div class="wc">No upcoming UFC events found</div><div class="tag">${$("#st").textContent}</div></div>`;return}
+ if(isNight()){put(m,nightView());return}
+ const s=weekSlides();slide%=s.length;put(m,s[slide]);if(isTxt()){const K=bjjSlides();document.querySelectorAll("#bjjSeg button").forEach(b=>{const c0=K[slide];b.classList.toggle("on",!!c0&&c0.k===b.dataset.k);b.style.display=K.some(x=>x.k===b.dataset.k)?"":"none"})}}
 setInterval(()=>{if(!isNight()&&Date.now()-lastTouch>30000){slide++;if(isTxt()){const K=bjjSlides();if(K.length&&K[slide%K.length].k==="info")slide++}render()}},9000);setInterval(()=>{if(bro!=null&&Date.now()-lastTouch>45000){bro=null;render()}},5000);
 (function tick(){setTimeout(async()=>{await load();tick()},cur&&cur.bouts.some(b=>b.state==="in")?8000:60000)})();
 $("#modeSeg").onclick=e=>{if(e.target.dataset.m){mode=e.target.dataset.m;LS.s("fn_mode",mode);render()}};
@@ -376,7 +380,7 @@ $("#bjjSave").onclick=()=>{BJT=$("#bjjTxt").value;LS.s("fn_bjjtxt",BJT);cur=bjjE
 $("#bjjClose").onclick=()=>$("#bjjPanel").classList.remove("show");
 $("#bjjSeg").onclick=e=>{const k=e.target.dataset.k;if(!k)return;const K=bjjSlides(),ix=K.findIndex(x=>x.k===k);if(ix>=0){slide=ix;lastTouch=Date.now();render()}};
 $("#homeBtn").onclick=()=>{$("#home2").classList.add("hide");$("#home").classList.remove("hide")};
-function go(a){hdrShow();document.body.classList.toggle("nfl",a==="nfl");document.body.classList.toggle("raf",a==="raf");Q=[];POSTINIT=false;NQ=[];SHOWN=null;NSHOWN=null;app=a;slide=0;bro=null;$("#home").classList.add("hide");$("#home2").classList.add("hide");if(a==="nfl"){render();nflLoad();return}if(a==="bjj"||a==="raf"){INFO="";BJT=TXTS[a];cur=bjjEvent();render();loadBjj()}else{pick();render();load()}}
+function go(a){PK="";PSIG="";hdrShow();document.body.classList.toggle("nfl",a==="nfl");document.body.classList.toggle("raf",a==="raf");Q=[];POSTINIT=false;NQ=[];SHOWN=null;NSHOWN=null;app=a;slide=0;bro=null;$("#home").classList.add("hide");$("#home2").classList.add("hide");if(a==="nfl"){render();nflLoad();return}if(a==="bjj"||a==="raf"){INFO="";BJT=TXTS[a];cur=bjjEvent();render();loadBjj()}else{pick();render();load()}}
 $("#home").onclick=e=>{const b=e.target.closest("button");if(!b)return;if(b.dataset.a==="nfl"){$("#home").classList.add("hide");$("#home2").classList.remove("hide")}else go(b.dataset.a)}
 $("#home2").onclick=e=>{const b=e.target.closest("button");if(!b)return;if(b.dataset.a==="bears")setTeam("CHI");if(b.dataset.a==="fav")setTeam(b.dataset.ab);if(b.dataset.a==="plus")$("#teamPanel").classList.add("show");if(b.dataset.a==="back"){$("#home2").classList.add("hide");$("#home").classList.remove("hide")}};;
 
