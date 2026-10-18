@@ -75,8 +75,10 @@ textarea{height:200px;font-family:monospace;font-size:12px}
 .ns{display:flex;align-items:center;gap:1.2vw;flex:1}.ns.r{flex-direction:row-reverse;text-align:right}.ns img{height:clamp(40px,9vh,90px);width:auto}.ns b{display:block;font-size:clamp(14px,2.4vw,28px);text-transform:uppercase}.ns small{color:var(--mut);font-size:clamp(10px,1.4vw,15px)}
 .ns .sc{font-size:clamp(30px,6vw,72px);font-weight:900;font-variant-numeric:tabular-nums;margin:0 1vw}
 .nb{display:flex;align-items:center;background:var(--pn);border-radius:12px;padding:.8vh 1.5vw;gap:1vw}.nc{text-align:center;min-width:22%}.nc .dd{color:#ffd23f;font-weight:700;font-size:clamp(12px,1.8vw,20px);margin-top:.3vh}
-.nfield{flex:1.1;min-height:0;margin:1vh 0}.fdtxt{text-align:center;color:var(--mut);font-size:clamp(11px,1.5vw,16px)}
-.nbot{flex:1;min-height:0;display:flex;gap:1.5vw}.nstats{flex:1.4;overflow:auto}.nside{flex:1;overflow:auto}
+.nfield{flex:1.15;min-height:0;margin:1.2vh 0}.fdtxt{text-align:center;color:var(--mut);font-size:clamp(11px,1.5vw,16px)}
+.nbot{flex:1;min-height:0;display:flex;gap:2vw;align-items:stretch}.nstats{flex:1.35;display:flex;flex-direction:column;justify-content:space-between;background:var(--pn);border-radius:12px;padding:1vh 1.6vw;min-height:0}.nside{flex:1;display:flex;flex-direction:column;gap:1.2vh;min-height:0}
+.nside .lp{margin:0;flex:1;display:flex;flex-direction:column;justify-content:center}.nside .qt{background:var(--pn);border-radius:12px;padding:.4vh .8vw}.upd{text-align:right;color:var(--mut);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.sr.sh{font-weight:900;letter-spacing:.1em;font-size:clamp(12px,1.6vw,18px);padding:0 0 .6vh;border-bottom:1px solid #ffffff18}.sr.sh span{display:flex;align-items:center;gap:.6vw;color:#fff;border-bottom:3px solid var(--c);padding-bottom:.3vh}.sr.sh span:last-child{justify-content:flex-end}.sr.sh img{height:2.6vh;width:auto}.sr.sh i{border:0}
 .sr{display:grid;grid-template-columns:5em 1fr 5em;align-items:center;gap:.8vw;font-size:clamp(12px,1.7vw,19px);padding:.35vh 0}.sr .sv{font-weight:800;text-align:center}.sr i{display:block;text-align:center;color:var(--mut);font-style:normal;font-size:.7em;letter-spacing:.1em;text-transform:uppercase}
 .bar{display:flex;height:.7vh;min-height:5px;border-radius:9px;overflow:hidden;background:#333}.bar b{display:block;height:100%}
 .lp{background:var(--pn);border-radius:10px;padding:1vh 1vw;font-size:clamp(12px,1.7vw,19px);margin-bottom:1vh}.lp small{display:block;color:var(--mut);letter-spacing:.12em;text-transform:uppercase;font-size:.65em}
@@ -447,9 +449,10 @@ async function nflRecs(g){await Promise.all([g.A,g.H].map(async t=>{const k=t.id
 const recOf=t=>{const c=NREC[t.id]||{},r=t.rec||c.rec||"";return t.ab===NT.ab&&c.st?(r?r+" · ":"")+c.st:r};
 const nflYr=()=>{const d=new Date();return d.getMonth()>=2?d.getFullYear():d.getFullYear()-1};
 async function nflNews(){if(NNEWS.length&&Date.now()-NNT<600000)return;try{const gj=async u=>{try{return(await (await fetch(u)).json()).articles||[]}catch(e){return[]}};
- const [a,b]=await Promise.all([gj(`${NB}/news?team=${NT.id}&limit=15`),gj(`${NB}/news?limit=25`)]);const seen={},out=[];
- [...a.map(x=>({x,t:NT.short})),...b.map(x=>({x,t:"NFL"}))].forEach(o=>{const h=(o.x.headline||"").trim();if(h&&!seen[h]){seen[h]=1;out.push({h,t:o.t})}});
- const m=[];for(let i=0;out.length&&i<40;i++){const e=out.shift();m.push(e)}if(m.length){NNEWS=m;NNT=Date.now()}}catch(e){}}
+ const [a,b]=await Promise.all([gj(`${NB}/news?limit=50`),gj(`https://site.api.espn.com/apis/site/v2/sports/football/nfl/news?limit=50&page=2`)]);const seen={},out=[];
+ const tg=x=>{const c=(x.categories||[]).find(k=>k.type==="team"&&k.teamId);const t=c&&NFLT.find(q=>String(q.id)===String(c.teamId));return t?t.ab:"NFL"};
+ [...a,...b].forEach(x=>{const h=(x.headline||"").trim();if(h&&!seen[h]){seen[h]=1;out.push({h,t:tg(x)})}});
+ const m=[];for(let i=0;out.length&&i<45;i++){const e=out.shift();m.push(e)}if(m.length){NNEWS=m;NNT=Date.now()}}catch(e){}}
 async function nflQBs(g){await Promise.all([g.A,g.H].map(async t=>{const c=NQB[t.id];if(c&&Date.now()-c.t<1800000)return;const o={t:Date.now()};
  try{const j=await (await fetch(`${NB}/teams/${t.id}/roster`)).json();const L=(j.athletes||[]).flatMap(x=>x.items||[x]).filter(x=>x&&x.position&&x.position.abbreviation==="QB").slice(0,4);
   const info=await Promise.all(L.map(async x=>{let st=null;try{const r=await (await fetch(`https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/${nflYr()}/types/2/athletes/${x.id}/statistics?lang=en&region=us`)).json();st=parseStats(r)}catch(e){}return{x,st}}));
@@ -478,20 +481,31 @@ function nflField(g){const S=g.sit||{},txt=S.downDistanceText||S.shortDownDistan
  const yd=s=>{s=String(s||"");const m=s.match(/([A-Z]{2,4})\s+(\d+)/);if(m)return m[1]===g.A.ab?+m[2]:100-m[2];const k=s.match(/at\s+(\d+)/);return k?+k[1]:null};
  const x=yd(txt),cur=NS&&NS.drives&&NS.drives.current,ds=cur&&cur.start?yd(cur.start.text):null;
  const pt=String(S.possession)===String(g.A.id)?g.A:String(S.possession)===String(g.H.id)?g.H:null,dir=pt===g.A?1:-1;
- const X=v=>100+v*8;let s=`<svg viewBox="0 0 1000 260" style="width:100%;height:100%"><rect width="1000" height="260" rx="10" fill="#1e5b34"/><rect width="100" height="260" fill="${g.A.col}" opacity=".9"/><rect x="900" width="100" height="260" fill="${g.H.col}" opacity=".9"/>`;
- s+=`<text x="50" y="130" transform="rotate(-90 50 130)" text-anchor="middle" fill="#fff" font-size="40" font-weight="900">${g.A.ab}</text><text x="950" y="130" transform="rotate(90 950 130)" text-anchor="middle" fill="#fff" font-size="40" font-weight="900">${g.H.ab}</text>`;
- for(let i=1;i<10;i++){s+=`<line x1="${X(i*10)}" x2="${X(i*10)}" y1="0" y2="260" stroke="#fff" opacity=".35" stroke-width="3"/><text x="${X(i*10)}" y="36" text-anchor="middle" fill="#fff" opacity=".6" font-size="26">${Math.min(i*10,100-i*10)}</text><text x="${X(i*10)}" y="246" text-anchor="middle" fill="#fff" opacity=".6" font-size="26">${Math.min(i*10,100-i*10)}</text>`}
+ const X=v=>100+v*8;
+ const nm=t=>{const n=t.short.toUpperCase();return`<text x="0" y="0" text-anchor="middle" dominant-baseline="central" fill="#fff" font-size="${n.length>8?27:n.length>6?33:40}" font-weight="900" letter-spacing="3" style="paint-order:stroke" stroke="#00000055" stroke-width="4"`};
+ let s=`<svg viewBox="0 0 1000 260" style="width:100%;height:100%"><defs><linearGradient id="fgr" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1f5f30"/><stop offset=".5" stop-color="#2f8a42"/><stop offset="1" stop-color="#1f5f30"/></linearGradient><pattern id="fht" width="22" height="22" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="9" height="22" fill="#fff" opacity=".10"/></pattern><clipPath id="fcl"><rect width="1000" height="260" rx="14"/></clipPath></defs><g clip-path="url(#fcl)"><rect width="1000" height="260" fill="url(#fgr)"/>`;
+ for(let i=0;i<10;i++)s+=`<rect x="${X(i*10)}" width="80" height="260" fill="${i%2?"#000":"#fff"}" opacity="${i%2?.07:.06}"/>`;
+ s+=`<rect width="100" height="260" fill="${g.A.col}"/><rect x="900" width="100" height="260" fill="${g.H.col}"/><rect width="100" height="260" fill="url(#fht)"/><rect x="900" width="100" height="260" fill="url(#fht)"/><rect width="1000" height="260" fill="#000" opacity="0"/>`;
+ s+=`<g transform="translate(50 130) rotate(-90)">${nm(g.A)}>${g.A.short.toUpperCase()}</text></g><g transform="translate(950 130) rotate(90)">${nm(g.H)}>${g.H.short.toUpperCase()}</text></g>`;
+ s+=`<line x1="100" x2="100" y1="0" y2="260" stroke="#fff" stroke-width="5"/><line x1="900" x2="900" y1="0" y2="260" stroke="#fff" stroke-width="5"/>`;
+ let hm="";for(let i=1;i<100;i++){const px=X(i),L=i%5===0?14:8;hm+=`M${px} 92v${L}M${px} 168v${-L}M${px} 0v8M${px} 260v-8`}
+ s+=`<path d="${hm}" stroke="#fff" stroke-width="2" opacity=".35" fill="none"/>`;
+ for(let i=1;i<10;i++){s+=`<line x1="${X(i*10)}" x2="${X(i*10)}" y1="0" y2="260" stroke="#fff" opacity=".55" stroke-width="3"/><text x="${X(i*10)}" y="46" text-anchor="middle" fill="#fff" opacity=".7" font-size="28" font-weight="700">${Math.min(i*10,100-i*10)}</text><text x="${X(i*10)}" y="238" text-anchor="middle" fill="#fff" opacity=".7" font-size="28" font-weight="700" transform="rotate(180 ${X(i*10)} 226)">${Math.min(i*10,100-i*10)}</text>`}
+ s+=`<g stroke="#ffd23f" stroke-width="6" stroke-linecap="round" fill="#ffd23f"><path d="M24 102v56M24 130h-14" fill="none"/><circle cx="24" cy="102" r="6"/><circle cx="24" cy="158" r="6"/><path d="M976 102v56M976 130h14" fill="none"/><circle cx="976" cy="102" r="6"/><circle cx="976" cy="158" r="6"/></g>`;
+ s+=`<rect x="3" y="3" width="994" height="254" rx="12" fill="none" stroke="#fff" stroke-width="5" opacity=".75"/>`;
  if(x!=null&&pt){const dist=parseInt(S.distance)||10,fd=Math.max(0,Math.min(100,x+dir*dist));
   if(ds!=null)s+=`<line x1="${X(ds)}" x2="${X(x)}" y1="130" y2="130" stroke="${pt.col}" stroke-width="16" opacity=".9" stroke-linecap="round"/>`;
   s+=`<line x1="${X(fd)}" x2="${X(fd)}" y1="20" y2="240" stroke="#ffd23f" stroke-width="5"/><ellipse cx="${X(x)}" cy="130" rx="20" ry="12" fill="#8b4513" stroke="#fff" stroke-width="3"/><path d="M${X(x)+dir*34} 130l${-dir*16} -12v24z" fill="#fff"/>`}
  if(g.state==="pre"){s+=`<image href="${g.A.logo}" x="${X(22)-45}" y="85" width="90" height="90" opacity=".9"/><image href="${g.H.logo}" x="${X(78)-45}" y="85" width="90" height="90" opacity=".9"/><ellipse cx="${X(50)}" cy="130" rx="20" ry="12" fill="#8b4513" stroke="#fff" stroke-width="3"/>`}
- return`<div class="nfield">${s}</svg><div class="fdtxt">${g.state==="pre"?"PREGAME":txt?txt+(pt?" · "+pt.short+" ball":""):""}</div></div>`}
+ return`<div class="nfield">${s}</g></svg>${g.state==="pre"?`<div class="fdtxt">PREGAME</div>`:""}</div>`}
 function nflStats(g){const T=NS&&NS.boxscore&&NS.boxscore.teams;if(!T)return`<div class="tag">Team stats appear once the game starts</div>`;
  const a=T.find(t=>t.team&&String(t.team.id)===String(g.A.id)),h=T.find(t=>t.team&&String(t.team.id)===String(g.H.id));if(!a||!h)return"";
  const m=t=>{const o={};(t.statistics||[]).forEach(q=>o[q.name]=q);return o},A=m(a),B=m(h);
  let keys=["totalYards","netPassingYards","rushingYards","firstDowns","thirdDownEff","turnovers","possessionTime"].filter(k=>A[k]&&B[k]);
  if(keys.length<3)keys=Object.keys(A).filter(k=>B[k]).slice(0,8);
- return keys.map(k=>{const av=A[k].displayValue,bv=B[k].displayValue,na=parseFloat(av),nb=parseFloat(bv),p=(na+nb>0)?na/(na+nb)*100:50;
+ keys=keys.filter(k=>k!=="firstDowns").slice(0,6);
+ const th=`<div class="sr sh"><span style="--c:${g.A.col}"><img src="${g.A.logo}" alt="">${g.A.ab}</span><i></i><span style="--c:${g.H.col}">${g.H.ab}<img src="${g.H.logo}" alt=""></span></div>`;
+ return th+keys.map(k=>{const av=A[k].displayValue,bv=B[k].displayValue,na=parseFloat(av),nb=parseFloat(bv),p=(na+nb>0)?na/(na+nb)*100:50;
   return`<div class="sr"><span class="sv">${av}</span><div><i>${A[k].label||k}</i><div class="bar"><b style="width:${p}%;background:${g.A.col}"></b><b style="width:${100-p}%;background:${g.H.col}"></b></div></div><span class="sv">${bv}</span></div>`}).join("")}
 function nflHTML(){if(!NG)return`<div class="slide"><div class="wc">${NSTAT||"Loading "+NT.short+" game..."}</div><div class="tag">Looking for a ${NT.short} game in the next two weeks</div></div>`;
  const g=NG;let body;
@@ -500,8 +514,8 @@ function nflHTML(){if(!NG)return`<div class="slide"><div class="wc">${NSTAT||"Lo
   body=nflField(g)+`<div class="npre"><div><div class="nk">${ms>0?`Kickoff in ${d}d ${hr}h`:"Starting soon"}</div><div class="tag">${tt}${g.venue?" · "+g.venue:""}${g.bc?" · "+g.bc:""}</div></div><div class="nrecs">${qc(g.A)}${qc(g.H)}</div></div>`}
  else{const lp=g.sit&&g.sit.lastPlay&&g.sit.lastPlay.text,n=Math.max(g.A.ls.length,g.H.ls.length,4);
   const row=t=>`<tr><td>${t.ab}</td>${Array.from({length:n},(_,i)=>`<td>${t.ls[i]??"-"}</td>`).join("")}<td><b>${t.score}</b></td></tr>`;
-  body=nflField(g)+`<div class="nbot"><div class="nstats">${nflStats(g)}</div><div class="nside">${lp?`<div class="lp"><small>Last play</small>${lp}</div>`:""}<table class="qt"><tr><td></td>${Array.from({length:n},(_,i)=>`<td>${i<4?i+1:"OT"}</td>`).join("")}<td>T</td></tr>${row(g.A)}${row(g.H)}</table></div></div>`}
- return`<div class="slide">${nflBoard(g)}${body}<div class="tag" style="font-size:11px">${NSTAT}</div></div>`}
+  body=nflField(g)+`<div class="nbot"><div class="nstats">${nflStats(g)}</div><div class="nside">${lp?`<div class="lp"><small>Last play</small>${lp}</div>`:""}<table class="qt"><tr><td></td>${Array.from({length:n},(_,i)=>`<td>${i<4?i+1:"OT"}</td>`).join("")}<td>T</td></tr>${row(g.A)}${row(g.H)}</table><div class="upd">${NSTAT}</div></div></div>`}
+ return`<div class="slide">${nflBoard(g)}${body}${g.state==="pre"?`<div class="tag" style="font-size:11px">${NSTAT}</div>`:""}</div>`}
 
 load();
 </script></body></html>
