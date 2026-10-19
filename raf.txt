@@ -1,5 +1,5 @@
 # RAF board data. Edit this file on GitHub and the board updates itself within about 5 minutes.
-# Source: the event pages on realamericanfreestyle.com (read Oct 16, 2026).
+# Source: the event pages on realamericanfreestyle.com (last read Oct 18, 2026).
 # Each Event: line starts a new card. The 📅 Cards button on the board switches between them. Put them in date order.
 # Bout line: Weight | Fighter A | Fighter B | Country A | Country B | Record A | Record B | Photo A URL | Photo B URL
 # Countries are 2-letter codes, filled in from the site's flags and general knowledge, so double-check them.
@@ -45,12 +45,13 @@ Catchweight | Diana Avsaragova | Julianna Peña | RU | US | | | https://cdn.prod
 
 Event: RAF 15 · Nov 28 · Chicago
 Card: Fight Card
-Lightweight Crossover | Danny Sabatello | Jacob Schultz | US | US | | | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6ad16bb391cc21e42e95fe8c_Saba.webp | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6ad22b05376c910235b74ac0_Sch.webp
 Cruiserweight Crossover | Donald Cerrone | Anthony Pettis | US | US | | | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6ac6602efb142ef841606b5c_Cer.webp | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6ac660fc814bd3eaebed4e9c_Pet.webp
 Featherweight Crossover · Championship | Cayden Henschel | Conor Beebe | US | US | | | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6abbe9c47de53be5ee43e263_6aad8d7ffe915b3cbe4e040b_Cayden1.webp | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6ad1703e8b7bf5a24da53442_Conor.webp
 Lightweight Crossover | Raúl Rosas Jr. | Clay Guida | MX | US | | | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6ad22fe4326a54dceb3c24cd_999.webp | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6ad193f14bc3e6104dcf90f7_Guide.webp
 Bantamweight | Matt Ramos | Roman Bravo-Young | PH | MX | | | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6ad22f74320758c12f7c8bc6_Ramoss.webp | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6ad22ebb68fd4a60b27f312f_RBY.webp
 Bantamweight Crossover | Haley Augello | Miranda Maverick | US | US | | | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6ad2641d189bda605c9a103e_Aug.webp | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6ad2646c189bda605c9a2222_Mav.webp
+Lightweight Crossover | Danny Sabatello | Jacob Schultz | US | US | | | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6ad16bb391cc21e42e95fe8c_Saba.webp | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6ad22b05376c910235b74ac0_Sch.webp
+Featherweight Crossover | Sergio Pettis | Cody Garbrandt | US | US | | | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6ad2327b05013956385b3914_12312333.webp | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6ad1955f5706eed8634e2a99_432.webp
 
 Event: RAF 16 · Dec 19 · Long Island, NY
 # No bouts announced yet. Add them here when the site lists them.
