@@ -1,0 +1,4 @@
+# About RAF
+Optional page. Write anything you want shown on the Info tab: how the rankings work, rules, where to watch.
+- Lines starting with a dash show as bullet points.
+- Lines starting with a hash are headings.

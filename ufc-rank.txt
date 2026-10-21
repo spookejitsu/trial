@@ -1,0 +1,225 @@
+# UFC rankings for the board. Source: ufc.com/rankings (last updated Sat, Oct 10, 2026; read Oct 19, 2026).
+# If this file is in your repo as ufc-rank.txt, it replaces the built-in rankings on the board within about 30 minutes.
+# Champion: Division | Name | Country | Record | Photo URL (optional - the board finds most photos itself)
+# Rank: Division | Number | Name | Record (optional) | Note (optional). Division text must match the Champion line exactly.
+# "Pound-for-Pound" divisions have Rank lines only.
+
+Champion: Flyweight (125 lbs) | Joshua Van | MM
+Rank: Flyweight (125 lbs) | 1 | Alexandre Pantoja
+Rank: Flyweight (125 lbs) | 2 | Manel Kape
+Rank: Flyweight (125 lbs) | 3 | Brandon Royval
+Rank: Flyweight (125 lbs) | 4 | Tatsuro Taira
+Rank: Flyweight (125 lbs) | 5 | Kyoji Horiguchi
+Rank: Flyweight (125 lbs) | 6 | Lone'er Kavanagh
+Rank: Flyweight (125 lbs) | 7 | Asu Almabayev
+Rank: Flyweight (125 lbs) | 8 | Brandon Moreno
+Rank: Flyweight (125 lbs) | 9 | Amir Albazi
+Rank: Flyweight (125 lbs) | 10 | Ramazan Temirov
+Rank: Flyweight (125 lbs) | 11 | Tim Elliott
+Rank: Flyweight (125 lbs) | 12 | Steve Erceg
+Rank: Flyweight (125 lbs) | 13 | Sumudaerji
+Rank: Flyweight (125 lbs) | 14 | Tagir Ulanbekov
+Rank: Flyweight (125 lbs) | 15 | Alex Perez
+
+Champion: Bantamweight (135 lbs) | Petr Yan | RU
+Rank: Bantamweight (135 lbs) | 1 | Merab Dvalishvili
+Rank: Bantamweight (135 lbs) | 2 | Sean O'Malley
+Rank: Bantamweight (135 lbs) | 3 | Song Yadong
+Rank: Bantamweight (135 lbs) | 4 | Umar Nurmagomedov
+Rank: Bantamweight (135 lbs) | 5 | Mario Bautista
+Rank: Bantamweight (135 lbs) | 6 | Cory Sandhagen
+Rank: Bantamweight (135 lbs) | 7 | Payton Talbott
+Rank: Bantamweight (135 lbs) | 8 | Aiemann Zahabi
+Rank: Bantamweight (135 lbs) | 9 | David Martinez
+Rank: Bantamweight (135 lbs) | 10 | Raul Rosas Jr.
+Rank: Bantamweight (135 lbs) | 11 | Marlon Vera
+Rank: Bantamweight (135 lbs) | 12 | Deiveson Figueiredo
+Rank: Bantamweight (135 lbs) | 13 | Farid Basharat
+Rank: Bantamweight (135 lbs) | 14 | Marcus McGhee
+Rank: Bantamweight (135 lbs) | 15 | Raoni Barcelos
+
+Champion: Featherweight (145 lbs) | Alexander Volkanovski | AU
+Rank: Featherweight (145 lbs) | 1 | Movsar Evloev
+Rank: Featherweight (145 lbs) | 2 | Diego Lopes
+Rank: Featherweight (145 lbs) | 3 | Lerone Murphy
+Rank: Featherweight (145 lbs) | 4 | Aljamain Sterling
+Rank: Featherweight (145 lbs) | 5 | Jean Silva
+Rank: Featherweight (145 lbs) | 6 | Yair Rodriguez
+Rank: Featherweight (145 lbs) | 7 | Arnold Allen
+Rank: Featherweight (145 lbs) | 8 | Youssef Zalal
+Rank: Featherweight (145 lbs) | 9 | Kevin Vallejos
+Rank: Featherweight (145 lbs) | 10 | Steve Garcia
+Rank: Featherweight (145 lbs) | 11 | Aaron Pico
+Rank: Featherweight (145 lbs) | 12 | Melquizael Costa
+Rank: Featherweight (145 lbs) | 13 | Brian Ortega
+Rank: Featherweight (145 lbs) | 14 | Patricio Pitbull
+Rank: Featherweight (145 lbs) | 15 | David Onama
+
+Champion: Lightweight (155 lbs) | Justin Gaethje | US
+Rank: Lightweight (155 lbs) | 1 | Ilia Topuria
+Rank: Lightweight (155 lbs) | 2 | Arman Tsarukyan
+Rank: Lightweight (155 lbs) | 3 | Charles Oliveira
+Rank: Lightweight (155 lbs) | 4 | Max Holloway
+Rank: Lightweight (155 lbs) | 5 | Paddy Pimblett
+Rank: Lightweight (155 lbs) | 6 | Benoît Saint Denis
+Rank: Lightweight (155 lbs) | 7 | Quillan Salkilld
+Rank: Lightweight (155 lbs) | 8 | Mauricio Ruffy
+Rank: Lightweight (155 lbs) | 9 | Salahdine Parnasse
+Rank: Lightweight (155 lbs) | 10 | Mateusz Gamrot
+Rank: Lightweight (155 lbs) | 11 | Rafael Fiziev
+Rank: Lightweight (155 lbs) | 12 | Renato Moicano
+Rank: Lightweight (155 lbs) | 13 | Dan Hooker
+Rank: Lightweight (155 lbs) | 14 | Tom Nolan
+Rank: Lightweight (155 lbs) | 15 | Beneil Dariush
+
+Champion: Welterweight (170 lbs) | Islam Makhachev | RU
+Rank: Welterweight (170 lbs) | 1 | Ian Machado Garry
+Rank: Welterweight (170 lbs) | 2 | Carlos Prates
+Rank: Welterweight (170 lbs) | 3 | Michael Morales
+Rank: Welterweight (170 lbs) | 4 | Jack Della Maddalena
+Rank: Welterweight (170 lbs) | 5 | Gabriel Bonfim
+Rank: Welterweight (170 lbs) | 6 | Sean Brady
+Rank: Welterweight (170 lbs) | 7 | Belal Muhammad
+Rank: Welterweight (170 lbs) | 8 | Leon Edwards
+Rank: Welterweight (170 lbs) | 9 | Kamaru Usman
+Rank: Welterweight (170 lbs) | 10 | Joaquin Buckley
+Rank: Welterweight (170 lbs) | 11 | Yaroslav Amosov
+Rank: Welterweight (170 lbs) | 12 | Uroš Medić
+Rank: Welterweight (170 lbs) | 13 | Mike Malott
+Rank: Welterweight (170 lbs) | 14 | Daniel Rodriguez
+Rank: Welterweight (170 lbs) | 15 | Neil Magny
+
+Champion: Middleweight (185 lbs) | Sean Strickland | US
+Rank: Middleweight (185 lbs) | 1 | Khamzat Chimaev
+Rank: Middleweight (185 lbs) | 2 | Dricus Du Plessis
+Rank: Middleweight (185 lbs) | 3 | Nassourdine Imavov
+Rank: Middleweight (185 lbs) | 4 | Brendan Allen
+Rank: Middleweight (185 lbs) | 5 | Caio Borralho
+Rank: Middleweight (185 lbs) | 6 | Joe Pyfer
+Rank: Middleweight (185 lbs) | 7 | Gregory Rodrigues
+Rank: Middleweight (185 lbs) | 8 | Anthony Hernandez
+Rank: Middleweight (185 lbs) | 9 | Israel Adesanya
+Rank: Middleweight (185 lbs) | 10 | Christian Leroy Duncan
+Rank: Middleweight (185 lbs) | 11 | Jared Cannonier
+Rank: Middleweight (185 lbs) | 12 | Abus Magomedov
+Rank: Middleweight (185 lbs) | 13 | Ikram Aliskerov
+Rank: Middleweight (185 lbs) | 14 | Bo Nickal
+Rank: Middleweight (185 lbs) | 15 | Shara Magomedov
+
+Champion: Light Heavyweight (205 lbs) | Carlos Ulberg | NZ
+Rank: Light Heavyweight (205 lbs) | 1 | Magomed Ankalaev
+Rank: Light Heavyweight (205 lbs) | 2 | Jiří Procházka
+Rank: Light Heavyweight (205 lbs) | 3 | Alex Pereira
+Rank: Light Heavyweight (205 lbs) | 4 | Khalil Rountree Jr.
+Rank: Light Heavyweight (205 lbs) | 5 | Navajo Stirling
+Rank: Light Heavyweight (205 lbs) | 6 | Paulo Costa
+Rank: Light Heavyweight (205 lbs) | 7 | Azamat Murzakanov
+Rank: Light Heavyweight (205 lbs) | 8 | Dominick Reyes
+Rank: Light Heavyweight (205 lbs) | 9 | Jan Błachowicz
+Rank: Light Heavyweight (205 lbs) | 10 | Bogdan Guskov
+Rank: Light Heavyweight (205 lbs) | 11 | Robert Whittaker
+Rank: Light Heavyweight (205 lbs) | 12 | Alonzo Menifield
+Rank: Light Heavyweight (205 lbs) | 13 | Muhammad Saidov
+Rank: Light Heavyweight (205 lbs) | 14 | Reinier de Ridder
+Rank: Light Heavyweight (205 lbs) | 15 | Nikita Krylov
+
+Champion: Heavyweight (265 lbs) | Ciryl Gane | FR
+Rank: Heavyweight (265 lbs) | 1 | Tom Aspinall
+Rank: Heavyweight (265 lbs) | 2 | Alexander Volkov
+Rank: Heavyweight (265 lbs) | 3 | Sergei Pavlovich
+Rank: Heavyweight (265 lbs) | 4 | Josh Hokit
+Rank: Heavyweight (265 lbs) | 5 | Curtis Blaydes
+Rank: Heavyweight (265 lbs) | 6 | Waldo Cortes Acosta
+Rank: Heavyweight (265 lbs) | 7 | Rizvan Kuniev
+Rank: Heavyweight (265 lbs) | 8 | Vitor Petrino
+Rank: Heavyweight (265 lbs) | 9 | Serghei Spivac
+Rank: Heavyweight (265 lbs) | 10 | Ante Delija
+Rank: Heavyweight (265 lbs) | 11 | Valter Walker
+Rank: Heavyweight (265 lbs) | 12 | Tyrell Fortune
+Rank: Heavyweight (265 lbs) | 13 | Derrick Lewis
+Rank: Heavyweight (265 lbs) | 14 | Aleksandar Rakić
+Rank: Heavyweight (265 lbs) | 15 | Mario Pinto
+
+Champion: Women's Strawweight (115 lbs) | Mackenzie Dern | BR
+Rank: Women's Strawweight (115 lbs) | 1 | Zhang Weili
+Rank: Women's Strawweight (115 lbs) | 2 | Tatiana Suarez
+Rank: Women's Strawweight (115 lbs) | 3 | Virna Jandiroba
+Rank: Women's Strawweight (115 lbs) | 4 | Denise Gomes
+Rank: Women's Strawweight (115 lbs) | 5 | Gillian Robertson
+Rank: Women's Strawweight (115 lbs) | 6 | Yan Xiaonan
+Rank: Women's Strawweight (115 lbs) | 7 | Fatima Kline
+Rank: Women's Strawweight (115 lbs) | 8 | Loopy Godinez
+Rank: Women's Strawweight (115 lbs) | 9 | Alexia Thainara
+Rank: Women's Strawweight (115 lbs) | 10 | Jéssica Andrade
+Rank: Women's Strawweight (115 lbs) | 11 | Tabatha Ricci
+Rank: Women's Strawweight (115 lbs) | 12 | Amanda Lemos
+Rank: Women's Strawweight (115 lbs) | 13 | Amanda Ribas
+Rank: Women's Strawweight (115 lbs) | 14 | Angela Hill
+Rank: Women's Strawweight (115 lbs) | 15 | Mizuki
+
+Champion: Women's Flyweight (125 lbs) | Natalia Silva | BR
+Rank: Women's Flyweight (125 lbs) | 1 | Valentina Shevchenko
+Rank: Women's Flyweight (125 lbs) | 2 | Alexa Grasso
+Rank: Women's Flyweight (125 lbs) | 3 | Manon Fiorot
+Rank: Women's Flyweight (125 lbs) | 4 | Erin Blanchfield
+Rank: Women's Flyweight (125 lbs) | 5 | Rose Namajunas
+Rank: Women's Flyweight (125 lbs) | 6 | Maycee Barber
+Rank: Women's Flyweight (125 lbs) | 6 | Jasmine Jasudavicius
+Rank: Women's Flyweight (125 lbs) | 8 | Wang Cong
+Rank: Women's Flyweight (125 lbs) | 9 | Tracy Cortez
+Rank: Women's Flyweight (125 lbs) | 10 | Miranda Maverick
+Rank: Women's Flyweight (125 lbs) | 11 | Karine Silva
+Rank: Women's Flyweight (125 lbs) | 12 | Casey O'Neill
+Rank: Women's Flyweight (125 lbs) | 13 | Eduarda Moura
+Rank: Women's Flyweight (125 lbs) | 14 | Regina Tarin
+Rank: Women's Flyweight (125 lbs) | 15 | Gabriella Fernandes
+
+Champion: Women's Bantamweight (135 lbs) | Kayla Harrison | US
+Rank: Women's Bantamweight (135 lbs) | 1 | Julianna Peña
+Rank: Women's Bantamweight (135 lbs) | 2 | Joselyne Edwards
+Rank: Women's Bantamweight (135 lbs) | 3 | Ailin Perez
+Rank: Women's Bantamweight (135 lbs) | 4 | Raquel Pennington
+Rank: Women's Bantamweight (135 lbs) | 5 | Norma Dumont
+Rank: Women's Bantamweight (135 lbs) | 6 | Yana Santos
+Rank: Women's Bantamweight (135 lbs) | 7 | Luana Santos
+Rank: Women's Bantamweight (135 lbs) | 8 | Jacqueline Cavalcanti
+Rank: Women's Bantamweight (135 lbs) | 9 | Macy Chiasson
+Rank: Women's Bantamweight (135 lbs) | 10 | Karol Rosa
+Rank: Women's Bantamweight (135 lbs) | 11 | Bia Mesquita
+Rank: Women's Bantamweight (135 lbs) | 12 | Michelle Montague
+Rank: Women's Bantamweight (135 lbs) | 13 | Nora Cornolle
+Rank: Women's Bantamweight (135 lbs) | 14 | Melissa Croden
+Rank: Women's Bantamweight (135 lbs) | 15 | Daria Zhelezniakova
+
+Rank: Men's Pound-for-Pound | 1 | Islam Makhachev
+Rank: Men's Pound-for-Pound | 2 | Alexander Volkanovski
+Rank: Men's Pound-for-Pound | 3 | Justin Gaethje
+Rank: Men's Pound-for-Pound | 4 | Petr Yan
+Rank: Men's Pound-for-Pound | 5 | Ilia Topuria
+Rank: Men's Pound-for-Pound | 6 | Joshua Van
+Rank: Men's Pound-for-Pound | 7 | Sean Strickland
+Rank: Men's Pound-for-Pound | 8 | Tom Aspinall
+Rank: Men's Pound-for-Pound | 9 | Merab Dvalishvili
+Rank: Men's Pound-for-Pound | 10 | Alex Pereira
+Rank: Men's Pound-for-Pound | 11 | Ciryl Gane
+Rank: Men's Pound-for-Pound | 12 | Khamzat Chimaev
+Rank: Men's Pound-for-Pound | 13 | Arman Tsarukyan
+Rank: Men's Pound-for-Pound | 14 | Alexandre Pantoja
+Rank: Men's Pound-for-Pound | 15 | Carlos Ulberg
+
+Rank: Women's Pound-for-Pound | 1 | Valentina Shevchenko
+Rank: Women's Pound-for-Pound | 2 | Kayla Harrison
+Rank: Women's Pound-for-Pound | 3 | Zhang Weili
+Rank: Women's Pound-for-Pound | 4 | Natalia Silva
+Rank: Women's Pound-for-Pound | 5 | Mackenzie Dern
+Rank: Women's Pound-for-Pound | 6 | Alexa Grasso
+Rank: Women's Pound-for-Pound | 7 | Manon Fiorot
+Rank: Women's Pound-for-Pound | 8 | Erin Blanchfield
+Rank: Women's Pound-for-Pound | 9 | Tatiana Suarez
+Rank: Women's Pound-for-Pound | 10 | Julianna Peña
+Rank: Women's Pound-for-Pound | 11 | Virna Jandiroba
+Rank: Women's Pound-for-Pound | 12 | Rose Namajunas
+Rank: Women's Pound-for-Pound | 13 | Raquel Pennington
+Rank: Women's Pound-for-Pound | 14 | Denise Gomes
+Rank: Women's Pound-for-Pound | 15 | Maycee Barber
+

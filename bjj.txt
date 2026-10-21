@@ -3,7 +3,8 @@
 # Rank: Division | Number | Name | Record | Note (optional)
 # The Division text must match exactly between Champion and Rank lines.
 
-Champion: Bantamweight (135 lbs) | Mikey Musumeci | US | 5-0
+# Title vacant: Mikey Musumeci vacated on Oct 10, 2026 to focus on MMA. Fonacier vs Barboza is for the vacant belt at UFC BJJ 13.
+Champion: Bantamweight (135 lbs) | Vacant | |
 Rank: Bantamweight (135 lbs) | 1 | Jalen Fonacier | 4-0-0
 Rank: Bantamweight (135 lbs) | 2 | Keven Carrasco | 1-1-0
 Rank: Bantamweight (135 lbs) | 3 | Rerisson Gabriel | 1-1-0
@@ -47,7 +48,7 @@ Rank: Women's Featherweight (145 lbs) | 3 | Bella Mir | 3-0-0
 Event: UFC BJJ 13 · Oct 29 · Las Vegas
 Card: Main Card
 Middleweight (Title) | William Tackett | Jay Rodriguez | US |
-Bantamweight (Title) | Jalen Fonacier | Kleber Barboza | US | | 4-0 |
+Bantamweight (Title) | Jalen Fonacier | Kleber Barboza | PH | | 4-0 |
 Light Heavyweight | Nick Rodriguez | Nata Tenca | US |
 Women's Bantamweight | Ffion Davies | Jaine Fragoso | GB |
 Card: Prelims

@@ -1,5 +1,5 @@
 # RAF board data. Edit this file on GitHub and the board updates itself within about 5 minutes.
-# Source: the event pages on realamericanfreestyle.com (last read Oct 18, 2026).
+# Source: the event pages on realamericanfreestyle.com (last read Oct 19, 2026).
 # Each Event: line starts a new card. The 📅 Cards button on the board switches between them. Put them in date order.
 # Bout line: Weight | Fighter A | Fighter B | Country A | Country B | Record A | Record B | Photo A URL | Photo B URL
 # Countries are 2-letter codes, filled in from the site's flags and general knowledge, so double-check them.
@@ -7,6 +7,116 @@
 # The Card: headings are my groupings of the site's bout order (the site only labels main and co-main events).
 # Champions and rankings (optional) are shared by all events:  Champion: Weight | Name | Country | Record
 
+
+# ---- Champions and rankings (shared by all events). Source: realamericanfreestyle.com/rankings, read Oct 19, 2026 ----
+# Rank: Division | Number | Name | Record | Note (optional). The Division text must match the Champion line exactly.
+# Champion: Division | Name | Country | Record | Photo URL (optional). Use Name = Vacant for an empty title.
+Champion: Heavyweight | Wyatt Hendrickson | US | 3-0 | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6a6de015a903ed7f727a89a2_1212.webp
+Rank: Heavyweight | 1 | Shamil Sharipov
+Rank: Heavyweight | 2 | Geno Petriashvili
+Rank: Heavyweight | 3 | Gable Steveson
+Rank: Heavyweight | 4 | Mason Parris
+Rank: Heavyweight | 5 | Jake Varner
+Rank: Heavyweight | 6 | Anthony Cassioppi
+Rank: Heavyweight | 7 | Yonger Bastida
+Rank: Heavyweight | 8 | Mostafa Elders
+Rank: Heavyweight | 9 | Trent Hillger
+Rank: Heavyweight | 10 | Zach Elam
+
+Champion: Light Heavyweight | Kyle Snyder | US | 5-0 | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6abbe8fe66b33d24e8341621_6a9ac45328f0dfef849793e0_Snyder-2.webp
+Rank: Light Heavyweight | 1 | Akhmed Tazhudinov
+Rank: Light Heavyweight | 2 | Abdulrashid Sadulaev
+Rank: Light Heavyweight | 3 | Givi Matcharashvili
+Rank: Light Heavyweight | 4 | Trent Hidlay
+Rank: Light Heavyweight | 5 | Rizabek Aitmukhan
+Rank: Light Heavyweight | 6 | Magomedkhan Magomedov
+Rank: Light Heavyweight | 7 | Stephen Buchanan
+Rank: Light Heavyweight | 8 | Hayden Zillmer
+Rank: Light Heavyweight | 9 | Yoel Romero
+Rank: Light Heavyweight | 10 | Zac Braunagel
+
+Champion: Cruiserweight | Kyle Dake | US | 6-0 | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6abbe90c5a9e80b0f780a4a9_6a9ac82e8fa052c3349b942d_Dake.png
+Rank: Cruiserweight | 1 | Parker Keckeisen
+Rank: Cruiserweight | 2 | Zahid Valencia
+Rank: Cruiserweight | 3 | Magomed Ramazanov
+Rank: Cruiserweight | 4 | Max McEnelly
+Rank: Cruiserweight | 5 | Ibragim Kadiev
+Rank: Cruiserweight | 6 | Bo Nickal
+Rank: Cruiserweight | 7 | Chance Marsteller
+Rank: Cruiserweight | 8 | Aeoden Sinclair
+Rank: Cruiserweight | 9 | Vladimeri Gamkrelidze
+Rank: Cruiserweight | 10 | Georgios Kougioumtsidis
+
+Champion: Middleweight | Jason Nolf | US | 7-1 | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6aba9a43e4e10ce40044d967_Nolfe.webp
+Rank: Middleweight | 1 | Jordan Burroughs
+Rank: Middleweight | 2 | Evan Wick
+Rank: Middleweight | 3 | Kadik
+Rank: Middleweight | 4 | Ismail Khaniev
+Rank: Middleweight | 5 | Cesar Alvan
+Rank: Middleweight | 6 | Christopher Minto
+Rank: Middleweight | 7 | Bekzod Abdurakhmonov
+Rank: Middleweight | 8 | Julian Ramirez
+Rank: Middleweight | INJ | Dean Hamiti | | Injured
+
+Champion: Welterweight | David Carr | US | 4-0 | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6a6de014a903ed7f727a8999_3434.webp
+Rank: Welterweight | 1 | Tajmuraz Salkazanov
+Rank: Welterweight | 2 | Razambek Zhamalov
+Rank: Welterweight | 3 | Timur Bizhoev
+Rank: Welterweight | 4 | James Green
+Rank: Welterweight | 5 | Michael Caliendo
+Rank: Welterweight | 6 | Joey Blaze
+Rank: Welterweight | 7 | Jarrett Jacques
+Rank: Welterweight | 8 | Will Lewan
+Rank: Welterweight | 9 | Mirzo Khayitov
+Rank: Welterweight | 10 | Amr Reda
+
+Champion: Lightweight | Vacant |  | 
+Rank: Lightweight | 1 | Enazar Akhmataliev
+Rank: Lightweight | 2 | Zain Retherford
+Rank: Lightweight | 3 | Ridge Lovett
+Rank: Lightweight | 4 | Jordan Oliver
+Rank: Lightweight | 5 | Jacori Teemer
+Rank: Lightweight | 6 | Haji Aliyev
+Rank: Lightweight | 7 | Antrell Taylor
+Rank: Lightweight | 8 | Pat Lugo
+Rank: Lightweight | 9 | Austin O'Connor
+Rank: Lightweight | 10 | Bajrang Punia
+
+Champion: Featherweight | Real Woods | US | 3-2 | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6a6de0038f9587090f94af2c_4545.webp
+Rank: Featherweight | 1 | Sebastian Rivera
+Rank: Featherweight | 2 | Bo Bassett
+Rank: Featherweight | 3 | Andrew Alirez
+Rank: Featherweight | 4 | Jesse Mendez
+Rank: Featherweight | 5 | Brock Hardy
+Rank: Featherweight | 6 | Beau Bartlett
+Rank: Featherweight | 7 | Anthony Ashnault
+Rank: Featherweight | 8 | Vladimer Khinchegashvili
+Rank: Featherweight | 9 | Alibeg Alibegov
+Rank: Featherweight | 10 | Bryce Meredith
+
+Champion: Bantamweight | Arsen Harutyunyan | AM | 3-0 | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6aba9c85ed1b8494ca705128_0f96e0d97c8368511edc25ec.webp
+Rank: Bantamweight | 1 | Austin Desanto
+Rank: Bantamweight | 2 | Masanosuke Ono
+Rank: Bantamweight | 3 | Andrii Yatsenko
+Rank: Bantamweight | 4 | Spencer Lee
+Rank: Bantamweight | 5 | Nathan Tomasello
+Rank: Bantamweight | 6 | Lucas Byrd
+Rank: Bantamweight | 7 | Ben Davino
+Rank: Bantamweight | 8 | Darian Cruz
+Rank: Bantamweight | 9 | Matt Ramos
+Rank: Bantamweight | 10 | Nico Megaludis
+
+Champion: Cruiserweight Crossover | Colby Covington | US | 4-0 | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6abbe90166b33d24e8341656_6aad74bd1308827fd20693e0_Colby1.webp
+
+Champion: Lightweight Crossover | Henry Cejudo | US | 2-1 | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6a89e243ef4915729a0ce4b6_%402.2.webp
+
+Champion: Featherweight Crossover | Cayden Henschel | US | 3-2 | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6abbe9c47de53be5ee43e263_6aad8d7ffe915b3cbe4e040b_Cayden1.webp
+
+Champion: Women's Middleweight | Kennedy Blades | US |  | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6abbe9bdae6930fca0bc8d82_6aad7826fac0eceab833f2d2_Blades-202.webp
+
+Champion: Women's Bantamweight | Helen Maroulis | US | 3-0 | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6a6de3e4183fbba14fb5eb47_7878.webp
+
+Champion: Women's Strawweight | Lucia Yepez | EC | 4-0 | https://cdn.prod.website-files.com/6894e4ad1ccbead79b5fd57b/6abbeca7bcfc9bb6558a37b7_Yeoe.webp
 
 Event: RAF 14 · Oct 23 · Las Vegas
 Card: Headliners
