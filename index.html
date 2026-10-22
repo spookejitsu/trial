@@ -16,6 +16,8 @@ header small{color:var(--mut);display:block;letter-spacing:0;font-weight:400;tex
 .btn{border:1px solid #ffffff30;border-radius:8px;background:#ffffff0d}
 .btn.pri{background:var(--r);border-color:var(--r);font-weight:700}
 main{flex:1;min-height:0;position:relative}
+.pstr{padding:0;align-items:center;justify-content:center;overflow:hidden}.pstr .pbg{position:absolute;inset:-5%;background-size:cover;background-position:center;filter:blur(28px) brightness(.45)}.pstr img{position:relative;max-width:96vw;max-height:84vh;object-fit:contain;border-radius:10px;box-shadow:0 0 6vh #000}.pstr .pcap{position:relative;margin-top:1.2vh;font-weight:800;letter-spacing:.2em;text-transform:uppercase;font-size:clamp(14px,2.4vh,28px)}
+.pm{padding-bottom:4vh;background:radial-gradient(ellipse at 15% 60%,#e0262f55,transparent 55%),radial-gradient(ellipse at 85% 60%,#2a6df455,transparent 55%)}.pm .pmt{font-weight:900;letter-spacing:.14em;text-transform:uppercase;font-size:clamp(20px,4.6vh,54px);text-align:center;margin:.4vh 0}
 .slide{position:absolute;inset:0;display:flex;flex-direction:column;padding:1.5vh 2vw;animation:in .5s}
 @keyframes in{from{opacity:0;transform:translateY(8px)}to{opacity:1}}
 .tag{text-align:center;color:var(--mut);letter-spacing:.2em;text-transform:uppercase;font-size:clamp(11px,1.5vw,16px)}
@@ -193,7 +195,8 @@ function fh(f,s,cls="",live=false){return`<div class="fighter ${s} ${cls}"><div 
 function sh(b){if(app==="raf"&&(b.state==="in"||b.state==="post")&&b.sa!=null)return`<div class="stats"><div class="rsc"><b class="a">${b.sa}</b><span>–</span><b class="b">${b.b_s!=null?b.b_s:b.sb}</b></div><div class="tag">POINTS</div></div>`;const LV=liveStatsHTML(b);if(LV)return LV;const r=(k,l)=>(b.a[k]==null&&b.b[k]==null)?"":`<div class="row"><div>${b.a[k]??"-"}</div><span>${l}</span><div>${b.b[k]??"-"}</div></div>`;const rows=r("rec","Record")+r("age","Age")+r("ht","Height")+r("reach","Reach")+r("stance","Stance");if(!rows.trim())return`<div class="stats vs"><div class="vsb">VS</div></div>`;return`<div class="stats">${rows}${app==="ufc"&&SC[b.cid+":"+b.a.id]?'<div class="tag" style="font-size:.65em;margin-top:.4vh">TAP FOR LIVE STATS</div>':""}</div>`}
 function tape(b,top,mid,ca="",cb="",live=false,foot=""){return`<div class="slide"><div class="tag">${top}</div><div class="wc">${b.wc}</div>${mid||""}<div class="tape">${fh(b.a,"a",ca,live)}${sh(b)}${fh(b.b,"b",cb,live)}</div>${foot}</div>`}
 function listSlide(card,all){return`<div class="slide"><div class="tag">${cur.name}</div><div class="wc">${card}</div><div class="list">`+all.filter(b=>b.card===card).map(b=>`<div class="bt"><div class="s">${ph(b.a,"a")}<div>${b.a.name}<small>${flagH(b.a)} ${b.a.rec}</small></div></div><div class="m"><b>VS</b>${b.wc}</div><div class="s">${ph(b.b,"b")}<div>${b.b.name}<small>${flagH(b.b)} ${b.b.rec}</small></div></div></div>`).join("")+`</div></div>`}
-function weekSlides(){if(app==="ufc"&&mode==="rank")return ufcRankSlides();const R=isTxt()?bjjSlides().map(x=>x.h):weekS();return R.length?R:[`<div class="slide"><div class="tag">${cur.name}</div><div class="wc">Card not announced yet</div><div class="tag">Check back soon</div></div>`]}function weekS(){const ch=[];const all=list(),cards=[...new Set(all.map(b=>b.card))];return[...ch,...cards.map(c=>listSlide(c,all)),...all.map((b,i)=>tape(b,`${b.card} · Bout ${i+1} of ${all.length}`))]}
+function weekSlides(){if(app==="ufc"&&mode==="rank")return ufcRankSlides();const R=isTxt()?bjjSlides().map(x=>x.h):weekS();return R.length?R:[`<div class="slide"><div class="tag">${cur.name}</div><div class="wc">Card not announced yet</div><div class="tag">Check back soon</div></div>`]}function mainPoster(){const l=[...(cur?cur.bouts:[])].sort((x,y)=>new Date(x.date)-new Date(y.date)||0),b=l[l.length-1];if(!b)return"";const d=b.date?new Date(b.date).toLocaleDateString([],{weekday:"long",month:"short",day:"numeric"}):"";return`<div class="slide pm"><div class="tag">MAIN EVENT</div><div class="pmt">${cur.name}</div><div class="wc">${b.wc}</div><div class="tape">${fh(b.a,"a")}<div class="stats vs"><div class="vsb">VS</div></div>${fh(b.b,"b")}</div><div class="tag">${d}</div></div>`}
+function weekS(){const ch=[];const all=list(),cards=[...new Set(all.map(b=>b.card))],mp=app==="ufc"?mainPoster():"";return[...(mp?[mp]:[]),...ch,...cards.map(c=>listSlide(c,all)),...all.map((b,i)=>tape(b,`${b.card} · Bout ${i+1} of ${all.length}`))]}
 function isNight(){if(app==="ufc"&&mode==="rank")return false;if(app==="raf")return RV===true?true:RV===false?false:!!(cur&&cur.bouts.some(b=>b.state!=="pre"));if(isTxt())return false;if(mode==="night")return true;if(mode==="week")return false;return cur&&cur.bouts.some(b=>b.state==="in"||b.state==="post"||b.done)}
 
 let LIVEB=null,CK={k:""};
@@ -305,6 +308,7 @@ function bjjEvent(){const IM=LS.g("fn_img",{});let card="Card";const evs=[],cham
  const f=(n,c,r,u)=>({id:n,name:n,cc:(c||"").toUpperCase(),flag:FLAG(c),rec:r||undefined,img:IM[n]||(/^https?:/i.test(u||"")?u:slug(n)+".png")});
  BJT.split("\n").forEach(l=>{l=l.trim();if(!l||l[0]==="#")return;let m;
   if(m=l.match(/^event:\s*(.*)/i)){ce={name:m[1]||PT(),bouts:[]};evs.push(ce);card="Card";return}if(m=l.match(/^card:\s*(.*)/i)){card=m[1];return}
+  if(m=l.match(/^poster:\s*(https?:\S+)/i)){if(ce)ce.poster=m[1];return}
   if(m=l.match(/^champion:\s*(.*)/i)){const p=m[1].split("|").map(x=>x.trim());if(p.length>=2){const cf=f(p[1],p[2],p[3],p[4]);cf.fem=/^women/i.test(p[0]);champs.push({wc:p[0],f:cf})};return}
   if(m=l.match(/^rank:\s*(.*)/i)){const p=m[1].split("|").map(x=>x.trim());if(p.length>=3)(ranks[p[0]]=ranks[p[0]]||[]).push({n:p[1],name:p[2],rec:p[3]||"",note:p[4]||""});return}
   const p=l.split("|").map(x=>x.trim());if(p.length<3)return;
@@ -312,7 +316,7 @@ function bjjEvent(){const IM=LS.g("fn_img",{});let card="Card";const evs=[],cham
   const fm_=/^women/i.test(p[0]),fa=f(p[1],p[3],p[5],p[7]),fb=f(p[2],p[4],p[6],p[8]);fa.fem=fb.fem=fm_;ce.bouts.push({card,wc:p[0],rounds:1,state:"pre",done:false,a:fa,b:fb})});
  if(!evs.length)evs.push({name:PT(),bouts:[]});
  const sv=LS.g("fn_txev_"+app,null),sel=evs.find(e=>e.name===sv)||evs[0];
- return{id:app,name:sel.name,date:"",bouts:sel.bouts,champs,ranks,evs:evs.map(e=>({name:e.name,n:e.bouts.length}))}}
+ return{id:app,name:sel.name,date:"",poster:sel.poster||"",bouts:sel.bouts,champs,ranks,evs:evs.map(e=>({name:e.name,n:e.bouts.length}))}}
 const fbg=f=>f.flag?`<div class="fbg" style="background-image:url(${f.flag})"></div>`:"";
 function champSlides(CH){const g={},ord=[];(CH||cur.champs).forEach(c=>{if(/^vacant$/i.test(c.f.name))return;if(!g[c.f.name]){g[c.f.name]={f:c.f,w:[]};ord.push(c.f.name)}g[c.f.name].w.push(c.wc)});
  const n=ord.length;
@@ -326,7 +330,8 @@ function infoSlide(){let h="",ul=0;const cl=()=>{if(ul){h+="</ul>";ul=0}};
  INFO.split("\n").forEach(l=>{l=l.trim();if(!l){cl();return}if(l[0]==="#"){cl();h+=`<h3>${esc(l.replace(/^#+\s*/,""))}</h3>`}else if(l.slice(0,2)==="- "){if(!ul){h+="<ul>";ul=1}h+=`<li>${esc(l.slice(2))}</li>`}else{cl();h+=`<p>${esc(l)}</p>`}});cl();
  return`<div class="slide"><div class="tag">${PT()}</div><div class="wc">Info</div><div class="info">${h}</div></div>`}
 function rankChunks(title,chs,RR,per){const n=Math.ceil(chs.length/per),o=[];for(let i=0;i<n;i++)o.push(rankSlide(title+(n>1?` · ${i+1}/${n}`:""),chs.slice(i*per,(i+1)*per),RR));return o}
-function bjjSlides(){const o=[],ch=cur.champs||[];if(ch.length){champSlides().forEach(h=>o.push({k:"champ",h}));
+function bjjSlides(){const o=[],ch=cur.champs||[];
+ if(cur.poster)o.push({k:"card",h:`<div class="slide pstr"><div class="pbg" style="background-image:url(${cur.poster})"></div><img src="${cur.poster}" alt=""><div class="pcap">${cur.name}</div></div>`});if(ch.length){champSlides().forEach(h=>o.push({k:"champ",h}));
  const RK=cur.ranks||{},has=c=>(RK[c.wc]||[]).length,men=ch.filter(c=>!/^women/i.test(c.wc)&&has(c)),wom=ch.filter(c=>/^women/i.test(c.wc)&&has(c)),per=app==="raf"?4:99;
  rankChunks("Men's Rankings",men,null,per).forEach(h=>o.push({k:"rank",h}));rankChunks("Women's Rankings",wom,null,per).forEach(h=>o.push({k:"rank",h}))}
  const all=list(),cards=[...new Set(all.map(b=>b.card))];cards.forEach(c=>o.push({k:"card",h:listSlide(c,all)}));
